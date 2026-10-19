@@ -1,0 +1,170 @@
+/* ============================================
+   CTA
+   ============================================ */
+.final-cta {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Linear filter between Assessment and Final CTA */
+.final-cta__transition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--space-section-y);
+  background: linear-gradient(
+    to bottom,
+    var(--neutral-100) 0%,
+    transparent 100%
+  );
+  z-index: var(--z-local);
+  pointer-events: none;
+}
+
+.final-cta__bg-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-base);
+  overflow: hidden;
+}
+
+.final-cta__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
+  /* Bright */
+}
+
+.final-cta__overlay {
+  position: absolute;
+  inset: 0;
+  /* Light overlay that blends the photo backwards. Clear, professional, very 'apagada' but visible */
+  background: linear-gradient(
+    180deg,
+    var(--ui-surface-tonal-95) 0%,
+    var(--ui-surface-tonal-75) 100%
+  );
+  /* Soft white overlay to keep dark text readable */
+}
+
+.final-cta__container {
+  position: relative;
+  z-index: var(--z-local);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.final-cta__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 680px;
+}
+
+/* H2: --text-3xl (= clamp 40–48px); lead: --text-base; button: --text-sm (inherits .btn, reinforced below). */
+.final-cta__title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-lg);
+  color: var(--neutral-900);
+}
+
+.final-cta__body {
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 1025px) {
+  .final-cta__body {
+    margin-bottom: var(--space-2xl);
+  }
+}
+
+.final-cta__lead {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-body);
+  color: var(--neutral-500);
+  margin: 0;
+}
+
+.final-cta__btn {
+  font-size: var(--text-sm);
+}
+
+.final-cta__footer {
+  margin-top: var(--space-2xl);
+  /* Match Concept padding-top */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.final-cta__line {
+  width: 1px;
+  height: 40px;
+  background-color: var(--ui-border-default);
+  margin-bottom: var(--space-lg);
+  /* Match Concept margin-bottom */
+}
+
+.final-cta__checklist {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xs) auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 680px;
+}
+
+/* Satoshi + cw-overline-* stack (same rhythm as meta / assessment features) */
+.final-cta__checklist li {
+  font-family: var(--font-sans);
+  font-size: var(--cw-overline-font-size);
+  font-weight: var(--cw-overline-font-weight);
+  letter-spacing: var(--cw-overline-letter-spacing);
+  text-transform: var(--cw-overline-text-transform);
+  font-style: normal;
+  line-height: var(--leading-normal);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--neutral-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  text-align: center;
+}
+
+.final-cta__checklist-icon {
+  width: 10px;
+  height: 10px;
+  opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+  .final-cta__content > .final-cta__body {
+    margin-bottom: var(--space-xl);
+  }
+}

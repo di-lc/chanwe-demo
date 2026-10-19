@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required head -->
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoría Estratégica | Chanwe</title>
+    <meta name="description"
+        content="Chanwe integra estrategia, transformación y tecnología para convertir los desafíos de tu negocio en resultados concretos. Desarrollamos diagnósticos y planes estratégicos, evaluamos proyectos e implementamos iniciativas de transformación, dashboards y sistemas ERP.">
+    <link rel="canonical" href="/es/">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/es/">
+    <meta property="og:title" content="Consultoría Estratégica y Desarrollo de Negocios | Chanwe">
+    <meta property="og:description"
+        content="Chanwe integra estrategia, transformación y tecnología para convertir los desafíos de tu negocio en resultados concretos. Desarrollamos diagnósticos y planes estratégicos, evaluamos proyectos e implementamos iniciativas de transformación, dashboards y sistemas ERP.">
+    <meta property="og:image" content="/assets/03-images/og-image/og-image.png">
+    <meta property="og:locale" content="es">
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="es" href="/es/">
+    <link rel="alternate" hreflang="en" href="/en/">
+    <link rel="alternate" hreflang="x-default" href="/es/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap">
+
+
+    <link rel="stylesheet" href="css/styles.css?v=20260928a">
+    <link rel="stylesheet" href="css/interior.css?v=20260731">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" defer></script>
+    <style>
+        /* Hero entry pre-states (GSAP targets) */
+        /* Prevents flash on return/refresh */
+        body.page-home.cw-home-prestate .hero__content>.cw-hero__tag,
+        body.page-home.cw-home-prestate .hero__content>.h1,
+        body.page-home.cw-home-prestate .hero__content>.subtitle,
+        body.page-home.cw-home-prestate .hero__content>.hero__actions,
+        body.page-home.cw-home-prestate .hero>.hero__scroll-indicator,
+        body.page-home.cw-home-prestate .hero__content>.hero__scroll-indicator--mobile {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+    <script src="js/i18n.js?v=20261019-en" defer></script>
+    <script src="js/components.js?v=20261019-2" defer></script>
+    <script src="js/main.js?v=20260901p" defer></script>
+    <script src="js/statement-story.js" defer></script>
+</head>
+
+<body class="page-home cw-home-prestate" itemscope itemtype="https://schema.org/ProfessionalService">
+    <div data-component="nav"></div>
+
+    <main id="main-content" role="main">
+
+        <!-- Hero -->
+        <section class="hero" id="hero" aria-label="Introducción a Chanwe">
+            <div class="hero__canvas-container" aria-hidden="true">
+                <canvas id="hero-video-canvas"></canvas>
+                <div class="hero__overlay"></div>
+            </div>
+
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <span class="section-tag cw-hero__tag">
+                        ESTRATEGIA ACTIVA
+                    </span>
+                    <h1 class="h1">Tu negocio tiene potencial.<br>Falta claridad para moverlo.
+                    </h1>
+                    <h2 class="subtitle">Estrategia, implementación tecnológica y transformación organizacional. <br>
+                        Para empresas que saben que no avanzar también cuesta.</h2>
+
+                    <div class="hero__actions">
+                        <a href="evaluacion.html" class="btn btn-primary">Evaluación Pulse</a>
+                        <a href="#casos" class="btn btn-secondary">Resultados Reales</a>
+                    </div>
+
+                    <a href="#statement" class="hero__scroll-indicator hero__scroll-indicator--mobile"
+                        aria-label="Descubrí más — ir a la siguiente sección">
+                        <span class="hero__scroll-label">DESCUBRÍ MÁS</span>
+                        <svg class="hero__scroll-arrow-img" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            aria-hidden="true">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 5l0 14" stroke="currentColor" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter"></path>
+                            <path d="M18 13l-6 6" stroke="currentColor" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter"></path>
+                            <path d="M6 13l6 6" stroke="currentColor" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero__scroll-indicator" aria-hidden="true">
+                <span class="hero__scroll-label">DESCUBRÍ MÁS</span>
+                <svg class="hero__scroll-arrow-img" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    aria-hidden="true">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 5l0 14" stroke="currentColor" stroke-width="1" stroke-linecap="butt"
+                        stroke-linejoin="miter"></path>
+                    <path d="M18 13l-6 6" stroke="currentColor" stroke-width="1" stroke-linecap="butt"
+                        stroke-linejoin="miter"></path>
+                    <path d="M6 13l6 6" stroke="currentColor" stroke-width="1" stroke-linecap="butt"
+                        stroke-linejoin="miter"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Statement -->
+        <section class="section statement" id="statement" aria-label="Qué hacemos">
+            <div class="container statement__container">
+                <div class="statement__pin-panel">
+                    <header class="statement__header">
+                        <span class="section-tag">
+                            <img src="assets/01-icons/chanwe-icons/chanwe-detail-icon.svg" alt=""
+                                class="section-tag__icon" width="12" height="12">
+                            QUÉ HACEMOS
+                        </span>
+                        <h2 class="statement__title">Los problemas no discriminan por<br>tamaño, facturación o
+                            trayectoria
+                        </h2>
+                    </header>
+
+                    <div class="statement__stage" role="group" aria-live="polite"
+                        aria-label="Mensajes sobre qué hacemos">
+                        <p class="statement__step statement__lead is-active" data-statement-step="1">Colaboramos en
+                            <strong>todas y cada una de las 10
+                                dimensiones</strong> de una organización — aportando soluciones, método, estudio o
+                            ideas.
+                        </p>
+                        <p class="statement__step statement__lead" data-statement-step="2" aria-hidden="true">Nuestro
+                            asesoramiento es integral cubriendo <strong>desde
+                                el diseño, la planificación e implementación</strong> involucrando transformación
+                            cultural,
+                            tecnología
+                            y dirección donde es necesario.</p>
+                        <p class="statement__step statement__closing" data-statement-step="3" aria-hidden="true">Nuestro
+                            primer y único objetivo: <span class="highlight-brand">Aportar valor tangible en el tiempo,
+                                la
+                                solución es a medida del problema, no al contrario.</span></p>
+                    </div>
+                </div>
+
+                <div class="statement__actions">
+                    <a href="evaluacion.html" class="btn btn-primary">Evaluación Pulse</a>
+                    <a href="#casos" class="btn btn-secondary">Resultados Reales</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem -->
+        <section class="section problem" id="problem" aria-label="Desafíos de crecimiento">
+            <div class="container problem__container">
+                <span class="section-tag">
+                    <img src="assets/01-icons/chanwe-icons/chanwe-detail-icon.svg" alt="" class="section-tag__icon"
+                        width="12" height="12">
+                    LOS DESAFÍOS
+                </span>
+                <h2 class="problem__title">¿Te suena familiar?</h2>
+
+                <div class="problem__grid">
+                    <div class="card-default problem-card">
+                        <div class="problem-card__content">
+                            <span class="problem-card__icon problem-card__icon--bolt" aria-hidden="true"></span>
+                            <h3 class="problem-card__title">Ritmo de decisión</h3>
+                            <p class="problem-card__text">Las decisiones lentas
+                                suelen costar más que las equivocadas. Un flujo constante de ideas
+                                dentro de un método robusto.</p>
+                        </div>
+                    </div>
+                    <div class="card-default problem-card">
+                        <div class="problem-card__content">
+                            <span class="problem-card__icon problem-card__icon--target-arrow" aria-hidden="true"></span>
+                            <h3 class="problem-card__title">Enfoque operativo</h3>
+                            <p class="problem-card__text">El día a día te consume. Es fundamental contar con el espacio
+                                para proyectar lo que viene y metabolizar lo que pasó.</p>
+                        </div>
+                    </div>
+                    <div class="card-default problem-card">
+                        <div class="problem-card__content">
+                            <span class="problem-card__icon problem-card__icon--filter" aria-hidden="true"></span>
+                            <h3 class="problem-card__title">Cuellos de botella</h3>
+                            <p class="problem-card__text">
+                                La operación también necesita madurar. Revisar procesos, roles y dinámicas permite ganar
+                                solidez, robustez y continuidad.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-default problem-card">
+                        <div class="problem-card__content">
+                            <span class="problem-card__icon problem-card__icon--database-search"
+                                aria-hidden="true"></span>
+                            <h3 class="problem-card__title">Datos sin explotar</h3>
+                            <p class="problem-card__text">La información está ahí, juntando polvo: si tenes los datos y
+                                están dispersos o fuera del proceso, estas desaprovechando potencial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="problem__closing">No faltan ganas, no faltan ideas. Es difícil pensar con perspectiva cuando
+                    el
+                    día a día te empuja todo el tiempo. <span class="highlight-brand">Ahí entra Chanwe.</span></p>
+            </div>
+        </section>
+
+        <!-- Concept -->
+        <section class="section concept" id="concept" aria-label="Por qué Chanwe">
+            <div class="container concept__container">
+                <div class="concept__header">
+                    <span class="section-tag">
+                        <img src="assets/01-icons/chanwe-icons/chanwe-detail-icon.svg" alt="" class="section-tag__icon"
+                            width="12" height="12">
+                        ESTRATEGIA
+                    </span>
+                    <h2 class="concept__title">¿Por qué Chanwe?</h2>
+                    <div class="concept__intro">
+                        <p class="concept__lead">
+                            Chanwe es la línea que separa a quienes reaccionan de quienes deciden. <br> Es esta
+                            filosofía la
+                            que define nuestra forma de trabajar.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="concept__split">
+                    <div class="concept__media concept-hover">
+                        <div class="concept__parallax-wrapper">
+                            <img class="concept__img" src="assets/03-images/webp/strategic-analysis-tablet.webp"
+                                alt="Análisis estratégico" loading="lazy">
+                        </div>
+                    </div>
+
+                    <div class="concept__topics">
+                        <div class="card-dark group">
+                            <div class="concept-card__row">
+                                <span class="concept-card__icon concept-card__icon--trending" aria-hidden="true"></span>
+                                <div class="concept-card__copy">
+                                    <h3 class="concept-card__title">Change - Transformación</h3>
+                                    <p class="concept-card__text">Nos movemos de un equilibrio a otro, esa mentalidad de
+                                        cambio constante que debe impulsar cada decisión.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-dark group">
+                            <div class="concept-card__row">
+                                <span class="concept-card__icon concept-card__icon--users" aria-hidden="true"></span>
+                                <div class="concept-card__copy">
+                                    <h3 class="concept-card__title">We - Codo a Codo</h3>
+                                    <p class="concept-card__text">Trabajamos juntos, resultados obtenidos juntos, la
+                                        confianza y la construcción de valor son un proceso continuo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-dark group">
+                            <div class="concept-card__row">
+                                <span class="concept-card__icon concept-card__icon--compass" aria-hidden="true"></span>
+                                <div class="concept-card__copy">
+                                    <h3 class="concept-card__title">El Changüí</h3>
+                                    <p class="concept-card__text">Ese margen que hace tu negocio distinto y le da
+                                        personalidad, va cuidado y potenciado.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="concept__footer">
+                    <div class="concept__line"></div>
+                    <p class="concept__micro">"La mejor manera de predecir el futuro es crearlo".</p>
+                    <p class="concept__attribution">— Peter Drucker</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Method -->
+        <section class="section method" id="metodologia" aria-label="Nuestra metodología">
+            <div class="container method__container">
+
+                <!-- Header -->
+                <div class="method__header">
+                    <span class="section-tag">
+                        <img src="assets/01-icons/chanwe-icons/chanwe-detail-icon.svg" alt="" class="section-tag__icon"
+                            width="12" height="12">
+                        EL MÉTODO
+                    </span>
+                    <h2 class="method__title">Cómo lo hacemos</h2>
+                </div>
+
+                <!-- Split -->
+                <div class="method__split">
+
+                    <!-- Pillars -->
+                    <div class="method__pillars" role="list">
+
+                        <div class="method__pillar method__pillar--active" data-pillar="0" role="listitem">
+                            <button class="method__pillar-trigger" type="button" aria-expanded="true"
+                                aria-controls="pillar-body-0">
+                                <span class="method__pillar-title" role="heading" aria-level="3">El ángulo que
+                                    falta.</span>
+                                <span class="method__pillar-icon" aria-hidden="true">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <use
+                                            href="assets/01-icons/general-icons/chanwe-general-icons.sprite.svg#general-chanwe-icon-chevron-down">
+                                        </use>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="method__pillar-body" id="pillar-body-0">
+                                <p class="method__pillar-text">La profesionalización es el camino, no el punto de
+                                    llegada.
+                                    Construir visión, método, orden y criterio es parte de un flujo constante dentro de
+                                    la
+                                    empresa. Donde otros ven obstáculos, nosotros vemos la materia prima para la
+                                    transformación.</p>
+                            </div>
+                            <div class="method__pillar-divider" aria-hidden="true"></div>
+                        </div>
+
+                        <div class="method__pillar" data-pillar="1" role="listitem">
+                            <button class="method__pillar-trigger" type="button" aria-expanded="false"
+                                aria-controls="pillar-body-1">
+                                <span class="method__pillar-title" role="heading" aria-level="3">Codo a Codo</span>
+                                <span class="method__pillar-icon" aria-hidden="true">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <use
+                                            href="assets/01-icons/general-icons/chanwe-general-icons.sprite.svg#general-chanwe-icon-chevron-down">
+                                        </use>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="method__pillar-body" id="pillar-body-1" aria-hidden="true" inert>
+                                <p class="method__pillar-text">Olvidate de la jerarquía rígida y del consultor del otro
+                                    lado
+                                    de la mesa. Acá trabajamos juntos, no solo "para vos". Pensamos como un solo equipo,
+                                    con
+                                    la urgencia y el compromiso con los que tu empresa se levanta cada mañana.
+                                </p>
+                            </div>
+                            <div class="method__pillar-divider" aria-hidden="true"></div>
+                        </div>
+
+                        <div class="method__pillar" data-pillar="2" role="listitem">
+                            <button class="method__pillar-trigger" type="button" aria-expanded="false"
+                                aria-controls="pillar-body-2">
+                                <span class="method__pillar-title" role="heading" aria-level="3">Claridad que
+                                    perdura</span>
+                                <span class="method__pillar-icon" aria-hidden="true">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <use
+                                            href="assets/01-icons/general-icons/chanwe-general-icons.sprite.svg#general-chanwe-icon-chevron-down">
+                                        </use>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="method__pillar-body" id="pillar-body-2" aria-hidden="true" inert>
+                                <p class="method__pillar-text">Nada es gratis: tanto el cambio como la inacción tienen
+                                    costos. Tener una imagen clara permite salir de la parálisis frente a la adversidad
+                                    y
+                                    también de la comodidad que impide moverse.</p>
+                            </div>
+                            <div class="method__pillar-divider" aria-hidden="true"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- Visual -->
+                    <div class="method__visual" aria-hidden="true">
+                        <!-- Peripheral Left (Previous Image) -->
+                        <div class="method__img-wrap method__img-wrap--left">
+                            <img class="method__img" id="method-img-left-0"
+                                src="assets/03-images/webp/focused-business-leadership.webp" alt="" loading="lazy">
+                            <img class="method__img" id="method-img-left-1"
+                                src="assets/03-images/webp/aligned-team.webp" alt="" loading="lazy">
+                            <img class="method__img method__img--active" id="method-img-left-2"
+                                src="assets/03-images/webp/data.webp" alt="" loading="lazy">
+                        </div>
+
+                        <!-- Image center -->
+                        <div class="method__img-wrap method__img-wrap--center">
+                            <img class="method__img method__img--active" id="method-img-0"
+                                src="assets/03-images/webp/focused-business-leadership.webp" alt="El ángulo que falta"
+                                loading="eager">
+                            <img class="method__img" id="method-img-1" src="assets/03-images/webp/aligned-team.webp"
+                                alt="Hombro con hombro" loading="lazy">
+                            <img class="method__img" id="method-img-2" src="assets/03-images/webp/data.webp"
+                                alt="Claridad que perdura" loading="lazy">
+                        </div>
+
+                        <!-- Image right -->
+                        <div class="method__img-wrap method__img-wrap--right">
+                            <img class="method__img" id="method-img-right-0"
+                                src="assets/03-images/webp/focused-business-leadership.webp" alt="" loading="lazy">
+                            <img class="method__img method__img--active" id="method-img-right-1"
+                                src="assets/03-images/webp/aligned-team.webp" alt="" loading="lazy">
+                            <img class="method__img method__img--right-2" id="method-img-right-2"
+                                src="assets/03-images/webp/data.webp" alt="" loading="lazy">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="section services" id="servicios" aria-label="Nuestras líneas de servicio">
+            <div class="container services__container">
+                <span class="section-tag">
+                    <img src="assets/01-icons/chanwe-icons/chanwe-detail-icon.svg" alt="" class="section-tag__icon"
+                        width="12" height="12">
+                    EJECUCIÓN
+                </span>
+
+                <div class="services__grid">
+                    <!-- Intro -->
+                    <div class="services__content">
+                        <div class="services__intro">
+                            <h2 class="services__title">Líneas de servicio</h2>
+                            <p class="services__lead">Diversos frentes. Una única dirección. Una empresa es una entidad
+                                compleja en todo momento, lugar y forma.</p>
+                        </div>
+                        <a href="contacto.html" class="btn btn-secondary services__cta">Hablemos</a>
+                    </div>
+                    <!-- Carousel -->
+                    <div class="services__carousel">
+                        <div class="services__visual-wrapper">
+                            <div class="services__viewport">
+                                <div class="services__wrapper">
+                                    <!-- Item 1 -->
+                                    <a href="servicios.html#estrategia-y-negocio"
+                                        class="service-card card-default services__slide services__slide--active">
+                                        <div class="service-card__body">
+                                            <img src="assets/01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg"
+                                                alt="" class="service-card__icon service-card__icon--arrow"
+                                                loading="lazy">
+                                            <h3 class="service-card__title">Estrategia y Negocio</h3>
+                                            <p class="service-card__text">Cuando la expansión y la rentabilidad tiran en
+                                                direcciones opuestas, algo no encaja. Diagnosticamos dónde está el
+                                                problema
+                                                y planificamos el camino de vuelta.</p>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item 2 -->
+                                    <a href="servicios.html#datos-e-inteligencia"
+                                        class="service-card card-default services__slide">
+                                        <div class="service-card__body">
+                                            <img src="assets/01-icons/chanwe-icons/chanwe-glyph-diamond-red.svg" alt=""
+                                                class="service-card__icon service-card__icon--diamond" loading="lazy">
+                                            <h3 class="service-card__title">Datos e Inteligencia</h3>
+                                            <p class="service-card__text">La información estancada no es un activo, es
+                                                ruido. Transformamos lo que ya existe en la empresa en indicadores que
+                                                orientan a los responsables de la toma de decisiones.</p>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item 3 -->
+                                    <a href="servicios.html#tecnologia-que-potencia"
+                                        class="service-card card-default services__slide">
+                                        <div class="service-card__body">
+                                            <img src="assets/01-icons/chanwe-icons/chanwe-glyph-checker-red.svg" alt=""
+                                                class="service-card__icon service-card__icon--checker" loading="lazy">
+                                            <h3 class="service-card__title">Tecnología que Potencia</h3>
+                                            <p class="service-card__text">CRM, ERP y automatizaciones - especialistas en
+                                                Odoo - implementadas para facilitar la operación, no para complicarla.
+                                            </p>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item 4 -->
+                                    <a href="servicios.html#optimizacion-financiera-capital-trabajo"
+                                        class="service-card card-default services__slide">
+                                        <div class="service-card__body">
+                                            <img src="assets/01-icons/chanwe-icons/chanwe-glyph-diamond-red.svg" alt=""
+                                                class="service-card__icon service-card__icon--diamond" loading="lazy">
+                                            <h3 class="service-card__title">Optimización Financiera y Capital de Trabajo
+                                            </h3>
+                                            <p class="service-card__text">La caja no miente. Cuando el flujo de fondos
+                                                aprieta, las decisiones estratégicas pierden margen. Recuperamos el
+                                                control
+                                                del capital de trabajo.</p>
+                                        </div>
+                                    </a>
+
+                                    <!-- Item 5 -->
+                                    <a href="servicios.html#evolucion-organizacional"
+                                        class="service-card card-default services__slide">
+                                        <div class="service-card__body">
+                                            <img src="assets/01-icons/chanwe-icons/chanwe-glyph-checker-red.svg" alt=""
+                                                class="service-card__icon service-card__icon--checker" loading="lazy">
+                                            <h3 class="service-card__title">Evolución Organizacional</h3>
+                                            <p class="service-card__text">Las estructuras que funcionaron en el pasado
+                                                no
+                                                siempre sostienen lo que viene. Acompañamos la transformación del
+                                                equipo,
+                                                los roles y la cultura.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Nav -->
+                            <div class="services__nav">
+                                <button class="services__nav-btn services__nav-btn--prev" aria-label="Anterior">
+                                    <svg width="54" height="54" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <use
+                                            href="assets/01-icons/general-icons/chanwe-general-icons.sprite.svg#general-chanwe-icon-chevron-left">
+                                        </use>
+                                    </svg>
+                                </button>
+                                <button class="services__nav-btn services__nav-btn--next" aria-label="Próximo">
+                                    <svg width="54" height="54" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <use
+                                            href="assets/01-icons/general-icons/chanwe-general-icons.sprite.svg#general-chanwe-icon-chevron-right">
+                                        </use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cases -->
+        <section class="section cases" id="casos" aria-label="Casos de impacto real">
+            <div class="container cases__container">
+                <span class="section-tag">
+                    <img src="assets/01-icons/chanwe-icons/chanwe-detail-icon.svg" alt="" class="section-tag__icon"
+                        width="12" height="12">
+                    RESULTADOS
+                </span>
+
+                <h2 class="cases__title">Impacto real</h2>
+
+                <div class="cases__grid">
+                    <!-- CARD 1 -->
+                    <a href="caso-retail-indumentaria.html" class="case-card" data-slug="retail-indumentaria">
+                        <div class="case-card__img-container">
+                            <img src="assets/05-cases/allure/operational-efficiency-expert.webp" alt=""
+                                class="case-card__img" loading="lazy">
+                        </div>
+
+                        <div class="case-card__footer">
+                            <div class="case-card__footer-top">
+                                <div class="case-card__meta">
+                                    <span class="case-card__sector">RETAIL DE INDUMENTARIA</span>
+                                    <span class="case-card__location">Buenos Aires, AR</span>
+                                </div>
+                            </div>
+                            <div class="case-card__content">
+                                <h3 class="case-card__h3 case-card__h3--highlight">x2 margen por SKU</h3>
+                                <h4 class="case-card__h4">Margen, stock y cashflow para una marca de indumentaria</h4>
+                                <p class="case-card__text-body">Transformamos una operación con sobrestock, márgenes
+                                    poco
+                                    visibles y presión de caja en un negocio con cashflow positivo y estable. A partir
+                                    de la
+                                    medición real de rentabilidad por SKU, canal y promoción, la marca pudo decidir
+                                    mejor.</p>
+
+                                <span class="text-link case-card__btn">
+                                    Ver el caso completo
+                                    <img src="assets/01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg" alt=""
+                                        class="text-link__icon">
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- CARD 2 -->
+                    <a href="caso-estaciones-servicio.html" class="case-card" data-slug="estaciones-servicio">
+                        <div class="case-card__img-container">
+                            <img src="assets/05-cases/godr/team-brainstorming.webp" alt="" class="case-card__img"
+                                loading="lazy">
+                        </div>
+
+                        <div class="case-card__footer">
+                            <div class="case-card__footer-top">
+                                <div class="case-card__meta">
+                                    <span class="case-card__sector">RED DE ESTACIONES DE SERVICIO</span>
+                                    <span class="case-card__location">Argentina</span>
+                                </div>
+                            </div>
+
+                            <div class="case-card__content">
+                                <h3 class="case-card__h3 case-card__h3--highlight">+ control financiero y operativo</h3>
+                                <h4 class="case-card__h4">Datos operativos para mejorar caja, incentivos y expansión
+                                </h4>
+                                <p class="case-card__text-body">Centralizamos la información operativa y financiera de
+                                    una red
+                                    de estaciones de servicio en una base de datos con tableros, reportes y métricas
+                                    accionables para mejorar la gestión diaria.</p>
+
+                                <span class="text-link case-card__btn">
+                                    Ver el caso completo
+                                    <img src="assets/01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg" alt=""
+                                        class="text-link__icon">
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- CARD 3 -->
+                    <a href="caso-pyme-familiar-multinegocio.html" class="case-card"
+                        data-slug="pyme-familiar-multinegocio">
+                        <div class="case-card__img-container">
+                            <img src="assets/05-cases/ona/operational.webp" alt="" class="case-card__img"
+                                loading="lazy">
+                        </div>
+
+                        <div class="case-card__footer">
+                            <div class="case-card__footer-top">
+                                <div class="case-card__meta">
+                                    <span class="case-card__sector">PYME FAMILIAR MULTINEGOCIO</span>
+                                    <span class="case-card__location">Argentina</span>
+                                </div>
+                            </div>
+
+                            <div class="case-card__content">
+                                <h3 class="case-card__h3 case-card__h3--highlight">3 unidades integradas</h3>
+                                <h4 class="case-card__h4">Información, procesos y estructura para una pyme familiar</h4>
+                                <p class="case-card__text-body">Centralizamos el flujo de información de una pyme
+                                    familiar con
+                                    tres unidades de negocio en un sistema quasi-contable. Con visibilidad económica y
+                                    financiera, la empresa rediseñó procesos y responsabilidades.</p>
+
+                                <span class="text-link case-card__btn">
+                                    Ver el caso completo
+                                    <img src="assets/01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg" alt=""
+                                        class="text-link__icon">
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="cases__cta-wrapper">
+                    <a href="casos.html" class="btn btn-secondary">Ver todos los casos</a>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Perspectivas -->
+        <section class="section cases" id="perspectivas" aria-label="Perspectivas y análisis">
+            <div class="container cases__container">
+                <span class="section-tag">
+                    <img src="assets/01-icons/chanwe-icons/chanwe-detail-icon.svg" alt="" class="section-tag__icon"
+                        width="12" height="12">
+                    PERSPECTIVAS
+                </span>
+
+                <h2 class="cases__title">Insights de la Industria para cada Industria</h2>
+
+                <div class="insights__list" id="container-perspectivas-home">
+
+                    <!-- Report 1 -->
+                    <div class="insight-row" data-slug="01_libertad">
+                        <div class="insight-row__media">
+                            <img src="assets/06-perspectivas/01_libertad.jpg"
+                                alt="Análisis estratégico de rentabilidad y transformación comercial en retail"
+                                class="insight-row__img" loading="lazy">
+                        </div>
+                        <div class="insight-row__content">
+                            <h3 class="insight-row__title">Reinventarse o desaparecer: el caso Libertad y la transición
+                                del supermercado tradicional al real estate retail</h3>
+                            <p class="insight-row__desc">Cómo Grupo Libertad reorientó su estrategia hacia sus
+                                fortalezas inmobiliarias para adaptarse a nuevos hábitos de consumo y a una competencia
+                                más intensa.</p>
+                            <div class="insight-row__meta">
+                                <span>Septiembre 2026</span>
+                                <span class="insight-row__meta-sep" aria-hidden="true">&bull;</span>
+                                <span>6 min de lectura</span>
+                            </div>
+                            <div class="insight-row__link-row">
+                                <a href="perspectiva.html?slug=01_libertad" class="text-link">
+                                    Leer más
+                                    <img src="assets/01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg" alt=""
+                                        class="text-link__icon">
+                                </a>
+                                <div class="insight-row__link-row-end">
+                                    <a href="#" class="insight-row__download" target="_blank" rel="noopener"
+                                        aria-label="Descargar PDF">
+                                        <svg class="insight-row__download-icon" xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" stroke="currentColor"
+                                                stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"></path>
+                                            <path d="M7 11l5 5l5 -5" stroke="currentColor" stroke-width="1"
+                                                stroke-linecap="butt" stroke-linejoin="miter"></path>
+                                            <path d="M12 4l0 12" stroke="currentColor" stroke-width="1"
+                                                stroke-linecap="butt" stroke-linejoin="miter"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Report 2 -->
+                    <div class="insight-row" data-slug="02_bbb">
+                        <div class="insight-row__media">
+                            <img src="assets/06-perspectivas/02_bbb.jpg"
+                                alt="Estrategia de precios, márgenes y relaciones comerciales" class="insight-row__img"
+                                loading="lazy">
+                        </div>
+                        <div class="insight-row__content">
+                            <h3 class="insight-row__title">Bueno, bonito y barato: cuando la disciplina de margen se
+                                convierte en ventaja competitiva</h3>
+                            <p class="insight-row__desc">Cómo algunas empresas en industrias altamente competitivas
+                                logran sostener precios competitivos y estándares de calidad a través de la
+                                transparencia y la credibilidad con su entorno.</p>
+                            <div class="insight-row__meta">
+                                <span>Septiembre 2026</span>
+                                <span class="insight-row__meta-sep" aria-hidden="true">&bull;</span>
+                                <span>6 min de lectura</span>
+                            </div>
+                            <div class="insight-row__link-row">
+                                <a href="perspectiva.html?slug=02_bbb" class="text-link">
+                                    Leer más
+                                    <img src="assets/01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg" alt=""
+                                        class="text-link__icon">
+                                </a>
+                                <div class="insight-row__link-row-end">
+                                    <a href="#" class="insight-row__download" target="_blank" rel="noopener"
+                                        aria-label="Descargar PDF">
+                                        <svg class="insight-row__download-icon" xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" stroke="currentColor"
+                                                stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"></path>
+                                            <path d="M7 11l5 5l5 -5" stroke="currentColor" stroke-width="1"
+                                                stroke-linecap="butt" stroke-linejoin="miter"></path>
+                                            <path d="M12 4l0 12" stroke="currentColor" stroke-width="1"
+                                                stroke-linecap="butt" stroke-linejoin="miter"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Report 3 -->
+                    <div class="insight-row" data-slug="03_desafiar">
+                        <div class="insight-row__media">
+                            <img src="assets/06-perspectivas/03_desafiar.jpg"
+                                alt="Análisis estratégico sobre Google, buscadores, publicidad digital y experiencia de usuario"
+                                class="insight-row__img" loading="lazy">
+                        </div>
+                        <div class="insight-row__content">
+                            <h3 class="insight-row__title">Desafiar a toda la industria: cómo Google derribó un axioma y
+                                cambió la experiencia web para siempre</h3>
+                            <p class="insight-row__desc">Cómo Google desafió la lógica dominante de los portales de
+                                búsqueda al priorizar velocidad, experiencia de usuario y volumen antes que monetización
+                                inmediata.</p>
+                            <div class="insight-row__meta">
+                                <span>Septiembre 2026</span>
+                                <span class="insight-row__meta-sep" aria-hidden="true">&bull;</span>
+                                <span>7 min de lectura</span>
+                            </div>
+                            <div class="insight-row__link-row">
+                                <a href="perspectiva.html?slug=03_desafiar" class="text-link">
+                                    Leer más
+                                    <img src="assets/01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg" alt=""
+                                        class="text-link__icon">
+                                </a>
+                                <div class="insight-row__link-row-end">
+                                    <a href="#" class="insight-row__download" target="_blank" rel="noopener"
+                                        aria-label="Descargar PDF">
+                                        <svg class="insight-row__download-icon" xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" stroke="currentColor"
+                                                stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"></path>
+                                            <path d="M7 11l5 5l5 -5" stroke="currentColor" stroke-width="1"
+                                                stroke-linecap="butt" stroke-linejoin="miter"></path>
+                                            <path d="M12 4l0 12" stroke="currentColor" stroke-width="1"
+                                                stroke-linecap="butt" stroke-linejoin="miter"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="cases__cta-wrapper cases__cta-wrapper--perspectivas">
+                    <a href="perspectivas.html" class="btn btn-secondary">Ver todas las perspectivas</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment -->
+        <section class="section assessment" id="evaluacion" aria-label="Diagnóstico de negocio">
+
+            <img src="assets/01-icons/chanwe-icons/chanwe-glyph-checker-red.svg" alt="" class="assessment__watermark"
+                aria-hidden="true">
+
+            <div class="assessment__inner">
+
+                <span class="section-tag">
+                    <img src="assets/01-icons/chanwe-icons/chanwe-detail-icon.svg" alt="" class="section-tag__icon"
+                        width="12" height="12">
+                    DIAGNÓSTICO - PULSE
+                </span>
+
+                <div class="assessment__split">
+
+                    <!-- Copy -->
+                    <div class="assessment__left">
+                        <h2 class="assessment__title">Una mirada rápida y completa para entender dónde estás parado</h2>
+                        <p class="assessment__lead">
+                            Diseñamos Pulse para acompañarte pregunta a pregunta y ayudarte a descubrir cuánto conocés
+                            realmente tu negocio, y cuánto creías conocerlo. Un diagnóstico introspectivo, holístico y
+                            claro, 100% online y gratuito.
+                        </p>
+
+                        <ul class="assessment__features">
+                            <li class="assessment__feature">
+                                <span>30 minutos</span>
+                            </li>
+                            <li class="assessment__feature">
+                                <span>Acceso inmediato</span>
+                            </li>
+                            <li class="assessment__feature">
+                                <span>Reporte por e-mail</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Steps -->
+                    <div class="assessment__right">
+                        <div class="assessment__card">
+
+                            <!-- Step 01 -->
+                            <div class="assessment__step">
+                                <div class="assessment__step-connector">
+                                    <span class="assessment__step-num">01</span>
+                                    <div class="assessment__step-line"></div>
+                                </div>
+                                <div class="assessment__step-body">
+                                    <h3 class="assessment__step-title">Respondés</h3>
+                                    <p class="assessment__step-desc">Preguntas breves sobre tu operación para entender
+                                        de
+                                        dónde venís, dónde estás parado y en qué contexto te desenvolvés.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 02 -->
+                            <div class="assessment__step">
+                                <div class="assessment__step-connector">
+                                    <span class="assessment__step-num">02</span>
+                                    <div class="assessment__step-line"></div>
+                                </div>
+                                <div class="assessment__step-body">
+                                    <h3 class="assessment__step-title">Analizamos</h3>
+                                    <p class="assessment__step-desc">Analizamos tus respuestas con nuestro framework
+                                        propietario de 10 dimensiones para construir una lectura clara del escenario
+                                        actual
+                                        de tu organización.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 03 -->
+                            <div class="assessment__step assessment__step--last">
+                                <div class="assessment__step-connector">
+                                    <span class="assessment__step-num">03</span>
+                                </div>
+                                <div class="assessment__step-body">
+                                    <h3 class="assessment__step-title">Recibís</h3>
+                                    <p class="assessment__step-desc">Recibí un reporte personalizado en menos de 24
+                                        horas y,
+                                        si querés, podemos profundizar juntos en tu situación actual.</p>
+                                </div>
+                            </div>
+
+                            <a href="evaluacion.html" class="btn btn-primary assessment__cta">
+                                Iniciar evaluación gratuita
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CTA -->
+        <section class="section final-cta" id="contacto" aria-label="Siguiente paso">
+            <!-- Transition -->
+            <div class="final-cta__transition" aria-hidden="true"></div>
+
+            <div class="final-cta__bg-wrapper">
+                <img src="assets/03-images/webp/final-cta.webp" alt="" class="final-cta__img" loading="lazy">
+                <div class="final-cta__overlay"></div>
+            </div>
+
+            <div class="container final-cta__container">
+                <div class="final-cta__content">
+                    <h2 class="final-cta__title">¿Aún tenés dudas?<br>Charlemos</h2>
+
+                    <div class="final-cta__body">
+                        <p class="final-cta__lead">Coordinemos una reunión, en persona o virtual, para conversar.
+                            Escribinos desde la página de contacto.</p>
+                    </div>
+
+                    <a href="contacto.html" class="btn btn-primary final-cta__btn">Agendá un
+                        encuentro</a>
+
+                    <div class="final-cta__footer">
+                        <div class="final-cta__line"></div>
+                        <ul class="final-cta__checklist">
+                            <li><img src="assets/01-icons/chanwe-icons/chanwe-detail-icon.svg" alt=""
+                                    class="final-cta__checklist-icon"> Sin presiones.</li>
+                            <li><img src="assets/01-icons/chanwe-icons/chanwe-detail-icon.svg" alt=""
+                                    class="final-cta__checklist-icon"> Sin compromiso.</li>
+                            <li><img src="assets/01-icons/chanwe-icons/chanwe-detail-icon.svg" alt=""
+                                    class="final-cta__checklist-icon"> Lo descubrimos juntos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div data-component="footer"></div>
+</body>
+
+</html>

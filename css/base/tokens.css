@@ -1,0 +1,336 @@
+/* ============================================
+   Tokens
+   ============================================ */
+:root {
+  /* Colors — base, semantic, UI */
+
+  /* Base */
+  --primary: #fd3810;
+  --primary-hover: #e94b2b;
+  --primary-active: #d64624;
+  --primary-light: #ee9782;
+  --primary-subtle: #f6d4c7;
+
+  --neutral-900: #272727;
+  --neutral-500: #6e6e6e;
+  --neutral-400: #929292;
+  --neutral-300: #c0c0c0;
+  --neutral-200: #cacaca;
+  --neutral-100: #f7f7f7;
+  --neutral-0: #fbfbfb;
+
+  --inverse-bg: #101010;
+  --inverse-surface: #1a1a1a;
+  --inverse-border: #2a2a2a;
+  --inverse-border-strong: #3a3a3a;
+
+  /* Semantic */
+  --status-success: #1eb508;
+  --status-success-bg: #98e0a2;
+  --status-error: #d32f2f;
+  --status-error-bg: #fdecea;
+  --status-warning: #f9e710;
+  --status-warning-bg: #fff8b8;
+  --status-info: #0c48ed;
+  --status-info-bg: #b8ceff;
+
+  --semantic-success-surface: rgba(152, 224, 162, 0.2);
+  --semantic-error-surface: rgba(253, 236, 234, 0.5);
+  --semantic-warning-surface: rgba(255, 248, 184, 0.5);
+  --semantic-info-surface: rgba(184, 206, 255, 0.3);
+  --semantic-warning-fg: #8a8000;
+  --semantic-accent-pressed: #c42e00;
+  --semantic-surface-selected: #fff3f0;
+
+  /* UI */
+  --ui-white: #ffffff;
+  --ui-black: #000000;
+
+  /* Border ramp — neutral-900 alpha scale */
+  --ui-border-default: rgba(39, 39, 39, 0.15);
+  --ui-border-low: rgba(39, 39, 39, 0.12);
+  --ui-border-muted: rgba(39, 39, 39, 0.08);
+  --ui-border-hairline: rgba(39, 39, 39, 0.04);
+  --ui-border-strong: rgba(39, 39, 39, 0.2);
+  --ui-border-frost: rgba(202, 202, 202, 0.4);
+  --ui-border-hover: #c0c0bc;
+  --ui-fg-divider: rgba(39, 39, 39, 0.3);
+  --ui-fg-placeholder: #9a9a9a;
+  --ui-fg-icon-muted: #aaaaaa;
+  --ui-fg-on-accent: #ffffff;
+
+  --ui-overlay: rgba(16, 16, 16, 0.3);
+  --ui-surface-inverse-hover: #2c2c2c;
+  --ui-surface-muted: #e6e6e6;
+  --ui-surface-hover: #f5f5f3;
+  --ui-surface-tonal-95: rgba(247, 247, 247, 0.95);
+  --ui-surface-tonal-75: rgba(247, 247, 247, 0.75);
+  --ui-surface-tonal-60: rgba(247, 247, 247, 0.6);
+  --ui-surface-tonal-50: rgba(247, 247, 247, 0.5);
+
+  --ui-on-inverse-border: rgba(255, 255, 255, 0.06);
+  --ui-on-inverse-border-hover: rgba(255, 255, 255, 0.08);
+  --ui-on-inverse-highlight: rgba(255, 255, 255, 0.03);
+
+  --ui-accent-glow: rgba(233, 75, 43, 0.08);
+  /* Focus — raw ring colors (composed into --shadow-* below) */
+  --ui-focus-ring: rgba(233, 75, 43, 0.05);
+  --ui-focus-ring-strong: rgba(233, 75, 43, 0.15);
+  --ui-accent-underline: rgba(233, 75, 43, 0.35);
+  --ui-accent-underline-hover: rgba(237, 119, 95, 0.6);
+
+  --ui-shimmer-strong: rgba(255, 255, 255, 0.3);
+  --ui-shimmer-soft: rgba(255, 255, 255, 0.2);
+  --ui-highlight-hero: rgba(255, 255, 255, 0.12);
+
+  --ui-backdrop-solid: rgba(251, 251, 251, 0.95);
+  --ui-backdrop-medium: rgba(251, 251, 251, 0.6);
+
+  /* Elevation ramp */
+  --ui-elevation-1: rgba(0, 0, 0, 0.02);
+  --ui-elevation-2: rgba(0, 0, 0, 0.03);
+  --ui-elevation-3: rgba(0, 0, 0, 0.04);
+  --ui-elevation-4: rgba(0, 0, 0, 0.05);
+  --ui-elevation-5: rgba(0, 0, 0, 0.06);
+  --ui-elevation-6: rgba(0, 0, 0, 0.08);
+  --ui-elevation-7: rgba(0, 0, 0, 0.1);
+  --ui-elevation-neutral: rgba(39, 39, 39, 0.12);
+
+  --ui-grid-line-inverse: rgba(255, 255, 255, 0.05);
+  --ui-mask-mid: rgba(0, 0, 0, 0.4);
+  --ui-mask-strong: rgba(0, 0, 0, 0.6);
+
+  /* Fonts */
+  --font-display: "Archivo", sans-serif;
+  --font-sans: "Satoshi", sans-serif;
+
+  /* Motion — UI timing (not hero canvas / scroll-arrow keyframes) */
+  --duration-micro: 100ms;
+  --duration-fast: 200ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+  --duration-emphasis: 800ms;
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasis: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  --transition-micro: var(--duration-micro) var(--ease-standard);
+  --transition-fast: var(--duration-fast) var(--ease-standard);
+  --transition-base: var(--duration-base) var(--ease-standard);
+  --transition-slow: var(--duration-slow) var(--ease-standard);
+  --transition-emphasis: var(--duration-emphasis) var(--ease-emphasis);
+  --transition-emphasis-ease: var(--duration-emphasis) ease;
+  --transition-smooth: var(--duration-base) var(--ease-out-soft);
+  /* Secondary CTA decorative sweeps */
+  --transition-shimmer: var(--duration-slow) var(--ease-standard);
+  --transition-decorative: 1s var(--ease-standard);
+  --transition-decorative-slow: 2s var(--ease-standard);
+
+  --container-max: 1280px;
+  /* Interior / product pages (metodologia, servicios, eval landing, pulse) */
+  --container-interior: 1100px;
+  --content-heading-max: 800px;
+  --content-cards-max: 980px;
+  --eval-steps-col-width: 26rem;
+  --text-stat-display: clamp(4rem, 12vw, 6rem);
+
+  /* Spacing — layout rhythm; section padding via .section only */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 80px;
+  --space-section-y: 120px;
+  /* Carousel nav gap */
+  --space-carousel-nav-gap: 13px;
+
+  /* Tag to title gap */
+  --cw-tag-to-title-gap: var(--space-xl);
+
+  /* Listing card (casos + informes) */
+  --listing-card-gap: var(--space-lg);
+  --listing-card-col-width: calc((100% - var(--listing-card-gap)) / 2);
+  --listing-card-carousel-width: min(
+    var(--listing-card-col-width),
+    calc((100% - var(--listing-card-gap)) / 2)
+  );
+
+  /* Sticky offset (nav placeholder height) */
+  --cw-header-height: 72px;
+  --cw-sidebar-sticky-top: calc(var(--cw-header-height) + var(--space-xl));
+
+  /* Card shell — feature cards (photo + footer; reusable) */
+  --card-height-lg: 480px;
+  --card-height-md: 420px;
+  --card-footer-h: 120px;
+  --card-footer-compact-h: var(--cw-header-height);
+  --card-media-h-tablet: 210px;
+  --card-media-h-handset: 185px;
+
+  /* Tag pill (listing / detail) */
+  --cw-tag-pill-padding-y: 3px;
+  --cw-tag-pill-gap: var(--space-2xs);
+
+  /* Search sidebar */
+  --cw-search-icon-size: var(--text-md);
+  --cw-search-clear-hit: var(--text-xl);
+  --cw-search-input-min-h: 36px;
+
+  /* Breakpoints: 1280 | 1024 (tablet/mobile) | 768 | 480 — see design-tokens-guide */
+
+  /* Card interior padding */
+  --card-interior-padding: var(--space-3xl);
+  --card-interior-padding-mobile: var(--space-2xl) var(--space-lg);
+  /* Form card max width */
+  --card-form-max-width: 560px;
+
+  /* Border radius */
+  --radius: 4px;
+  --radius-none: 0;
+  --radius-full: 50%;
+
+  /* Shadows */
+  --shadow-none: none;
+  --shadow-sm: 0 2px 12px var(--ui-elevation-5);
+  --shadow-md: 0 4px 20px var(--ui-elevation-4);
+  --shadow-lg: 0 12px 36px var(--ui-elevation-6);
+  --shadow-xl: 0 32px 96px var(--ui-elevation-6);
+
+  /*
+   * Focus shadows & outline tokens — use via .cw-focus-ring utilities (utilities.css)
+   *
+   * --shadow-focus       Soft glow for form controls (:focus-visible + border primary).
+   *                      Used by .form-input, password wraps, .cw-focus-ring--soft.
+   *
+   * --shadow-ring-light  Double ring on light surfaces (neutral inner + primary outer).
+   *                      Design-system / .cw-focus-ring--ring-light.
+   *
+   * --shadow-ring-dark   Double ring on dark surfaces (inverse inner + white outer).
+   *                      Design-system / .cw-focus-ring--ring-dark.
+   *
+   * --cw-focus-outline-* Default keyboard ring: 2px primary outline + 3px offset.
+   *                      .cw-focus-ring and shared nav/footer/listing controls.
+   */
+  --shadow-focus: 0 0 0 3px var(--ui-focus-ring);
+  --shadow-ring-light: 0 0 0 2px var(--neutral-100), 0 0 0 4px var(--primary);
+  --shadow-ring-dark: 0 0 0 2px var(--inverse-bg), 0 0 0 4px var(--neutral-0);
+
+  --cw-focus-outline-width: 2px;
+  --cw-focus-outline-color: var(--primary);
+  --cw-focus-outline-offset: 3px;
+  --cw-focus-inverse-shadow: 0 0 0 4px var(--primary-active);
+
+  /* Disabled / loading — shared across .btn, .form-input, pagination, etc. */
+  --ui-disabled-opacity: 0.35;
+  --ui-loading-opacity: 0.75;
+
+  /* Image filters */
+  --filter-image-muted: saturate(0.65) brightness(1.05) contrast(1.1);
+  --filter-image-hover: saturate(1) brightness(1) contrast(1);
+  --filter-image-hover-soft: saturate(1);
+  --filter-image-muted-deep: saturate(0.65) brightness(0.95) contrast(1.1);
+  --filter-image-hover-rich: saturate(1) brightness(1) contrast(1.1);
+  --filter-image-peripheral: saturate(0.3) brightness(1) contrast(1.1);
+  --filter-image-none: none;
+  --filter-ui-icon-muted: grayscale(100%) opacity(0.4);
+  --filter-ui-icon-active: grayscale(0%) opacity(1);
+  --filter-image-depth-blur: blur(3px);
+
+  /* Z-index scale */
+  --z-behind: -1;
+  --z-base: 0;
+  --z-raised: 1;
+  --z-local: 2;
+  --z-ui: 10;
+  --z-sticky: 20;
+  --z-nav-controls: 200;
+  --z-overlay: 1000;
+  --z-nav: 1100;
+  --z-modal: 2000;
+
+  /* Typography scale */
+  --text-xs: 10px;
+  --text-link: 13px;
+  --text-tag-count: 9px;
+  --text-sm: 13px;
+  /* captions, card body dense, CTA caps, hints */
+  --text-base: 16px;
+  /* default reading, nav links, form labels, inputs */
+  --text-md: 18px;
+  /* H4-style titles, editorial emphasis */
+  --text-lg: 22px;
+  /* lead / deck */
+  --text-xl: 28px;
+  /* section H3 */
+  --text-2xl: clamp(22px, 4vw, 34px);
+  /* screen titles, booking/login/eval steps */
+  --text-3xl: clamp(40px, 4vw, 48px);
+  /* section H2 */
+  --text-hero: clamp(56px, 6vw, 58px);
+  /* home hero H1 (principal) */
+  /* Detail page title */
+  --text-detail-title: clamp(1.875rem, 0.5rem + 3.2vw, 2.75rem);
+  --text-detail-title-md: 36px;
+  --text-detail-title-sm: 32px;
+  --text-hero-tablet: 40px;
+  --text-prose-h2-mobile: 24px;
+  --text-subtitle: clamp(20px, 2vw, var(--text-xl));
+  --text-hero-viewport-compact: clamp(48px, 5vw, 56px);
+
+  /* Line-height scale */
+  --leading-none: 1;
+  /* single-line lockups, icon + label */
+  --leading-tight: 1.1;
+  /* compact headings (e.g. modal) */
+  --leading-condensed: 1.15;
+  /* very dense display (e.g. nav lockup) */
+  --leading-display: 1.2;
+  /* large H1 / display, eval-style screens */
+  --leading-heading: 1.25;
+  /* section H2, fluid --text-3xl titles */
+  --leading-subtitle: 1.3;
+  /* H3, cards, steps, timeline numbers */
+  --leading-ui: 1.35;
+  /* form panels, compact UI */
+  --leading-label: 1.4;
+  /* column labels, dense meta */
+  --leading-snug: 1.45;
+  /* forms / interior, short paragraphs */
+  --leading-balanced: 1.5;
+  /* leads, captions, lists */
+  --leading-interface: 1.55;
+  /* mixed form blocks */
+  --leading-body: 1.6;
+  /* main reading body */
+  --leading-relaxed: 1.65;
+  /* long copy (eval, dense disclaimers) */
+  --leading-normal: normal;
+  /* overlines / uppercase micro */
+
+  /* Font-weight scale */
+  --font-weight-extralight: 200;
+  /* primary CTA (.btn) */
+  --font-weight-light: 300;
+  /* cw-overlines, light display */
+  --font-weight-regular: 400;
+  /* body + default UI */
+  --font-weight-medium: 500;
+  /* form labels, UI emphasis */
+  --font-weight-semibold: 600;
+  /* numerals / card emphasis */
+  --font-weight-bold: 700;
+  /* steps, strong headings */
+
+  /* Overline stack */
+  --cw-overline-font-family: var(--font-display);
+  --cw-overline-font-size: var(--text-xs);
+  --cw-overline-font-weight: var(--font-weight-light);
+  --cw-overline-letter-spacing: 0.2em;
+  --cw-overline-text-transform: uppercase;
+
+  /* Legacy token aliases — see design-tokens-guide */
+}

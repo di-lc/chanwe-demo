@@ -1,0 +1,315 @@
+/* ==========================================================================
+   Casos listing
+   Base: styles.css + interior.css + perspectivas.css
+   ========================================================================== */
+
+/* Page scope */
+#casos-listagem {
+  background-color: var(--neutral-100);
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: var(--space-section-y);
+}
+
+#casos-listagem .section-tag {
+  margin-bottom: var(--cw-tag-to-title-gap);
+}
+
+/* Last block flush */
+#casos-listagem > :last-child {
+  margin-bottom: 0;
+}
+
+#casos-listagem .cw-casos__section:last-of-type {
+  padding-bottom: 0;
+}
+
+/* Hero tag */
+#casos-listagem .cw-perspectivas__hero .section-tag {
+  color: var(--primary);
+}
+
+.cw-casos__section {
+  padding: var(--space-xl) 0;
+  position: relative;
+}
+
+.cw-casos__section--base {
+  background-color: var(--neutral-100);
+}
+
+/* Listing — full width */
+#casos-listagem .casos__listing {
+  max-width: none;
+  margin: 0;
+}
+
+/* Sidebar — wrap labels */
+#casos-listagem .cw-sidebar__btn-label {
+  white-space: normal;
+  text-transform: none;
+  line-height: var(--leading-balanced);
+}
+
+/* Listing — category blocks */
+.casos__listing-inner {
+  padding: var(--space-2xl) 0;
+}
+
+#casos-listagem .cw-casos__section--base .casos__listing-inner {
+  padding-top: 0;
+}
+
+@media (min-width: 1025px) {
+  #casos-listagem .cw-casos__section--base .casos__listing-inner {
+    padding-bottom: 0;
+  }
+}
+
+.casos__category {
+  margin-bottom: var(--space-2xl);
+}
+
+.casos__category:last-child {
+  margin-bottom: 0;
+}
+
+/* Category header — same rhythm as Informes */
+.casos__section-header {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: end;
+  width: 100%;
+  gap: var(--space-xl);
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--ui-border-default);
+}
+
+#casos-listagem
+  .cw-casos__section--base
+  .casos__category:first-child
+  .casos__section-header {
+  padding-top: 0;
+}
+
+#casos-listagem .casos__section-title {
+  margin: 0;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  color: var(--neutral-900);
+  text-align: left;
+  text-wrap: balance;
+}
+
+/* Listing — desktop: single card centered per category */
+@media (min-width: 1025px) {
+  #casos-listagem .cw-listing-category:not(.cw-listing-category--carousel):has(.case-card--listing:only-of-type) {
+    justify-content: center;
+  }
+
+  #casos-listagem .cw-listing-category--carousel .cw-carousel__slide .case-card--listing {
+    width: 100%;
+  }
+
+  /* Card — fixed height */
+  #casos-listagem .case-card--listing {
+    height: var(--card-height-lg);
+    min-height: var(--card-height-lg);
+    max-height: var(--card-height-lg);
+    min-width: 0;
+    flex-shrink: 0;
+  }
+}
+
+/* Card height — ≤1280px */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #casos-listagem .case-card--listing {
+    height: var(--card-height-md);
+    min-height: var(--card-height-md);
+    max-height: var(--card-height-md);
+  }
+}
+
+#casos-listagem .casos__category {
+  align-items: stretch;
+}
+
+/* Listing — mobile cards */
+@media (max-width: 1024px) {
+  /* Main — bottom pad */
+  #casos-listagem .cw-casos__section--base .cw-casos__main {
+    padding-bottom: var(--space-2xl);
+  }
+
+  #casos-listagem .casos__listing-inner {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  #casos-listagem .casos__section-header {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+  }
+
+  #casos-listagem .casos__section-title {
+    font-size: var(--text-lg);
+  }
+
+  #casos-listagem .casos__category {
+    margin-bottom: var(--space-xl);
+  }
+
+  #casos-listagem .casos__category:last-child {
+    margin-bottom: 0;
+  }
+
+  #casos-listagem .cw-carousel__slide .case-card--listing,
+  #casos-listagem .case-card--listing.cw-carousel__slide {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    margin-bottom: 0;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+
+  #casos-listagem .case-card--listing .case-card__img-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: var(--card-media-h-tablet);
+  }
+
+  #casos-listagem .case-card--listing .case-card__footer {
+    position: relative;
+    height: auto;
+  }
+
+  #casos-listagem .case-card--listing .case-card__content {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #casos-listagem .case-card--listing {
+    cursor: pointer;
+  }
+
+  #casos-listagem :is(.case-card--listing:hover, .case-card--listing:focus-visible) .case-card__img {
+    transform: none;
+    filter: var(--filter-image-muted);
+  }
+
+  #casos-listagem .case-card--listing .case-card__img {
+    filter: var(--filter-image-muted);
+    opacity: 0.85;
+  }
+
+  #casos-listagem .case-card--listing[data-slug="retail-indumentaria"] .case-card__img {
+    object-position: center 15%;
+    transform: none;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  #casos-listagem .case-card--listing[data-slug="estaciones-servicio"] .case-card__img {
+    object-position: center 40%;
+  }
+}
+
+/* Card image — handset height + slug crops (listing mobile) */
+@media (max-width: 768px) {
+  #casos-listagem .case-card--listing .case-card__img-container {
+    height: var(--card-media-h-handset);
+  }
+
+  #casos-listagem .case-card--listing[data-slug="retail-indumentaria"] .case-card__img {
+    object-position: center 15%;
+    transform: none;
+  }
+
+  #casos-listagem .case-card--listing[data-slug="estaciones-servicio"] .case-card__img {
+    object-position: center 55%;
+  }
+}
+
+/* Slug-specific image framing — desktop listing */
+@media (min-width: 1025px) {
+  #casos-listagem .case-card--listing[data-slug="retail-indumentaria"] .case-card__img {
+    object-position: center calc(100% + 20px);
+    transform-origin: center bottom;
+    transform: scale(1.3);
+  }
+
+  #casos-listagem .case-card--listing[data-slug="estaciones-servicio"] .case-card__img {
+    object-position: center 90%;
+  }
+}
+
+/* Desktop — compact footer + hover expand (listing only) */
+@media (min-width: 1025px) {
+  #casos-listagem .case-card--listing .case-card__footer {
+    height: var(--card-footer-compact-h);
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  #casos-listagem :is(.case-card--listing:hover, .case-card--listing:focus-visible) .case-card__footer {
+    height: 100%;
+    padding: var(--space-lg);
+  }
+
+  #casos-listagem .case-card--listing .case-card__content {
+    flex: 0 0 0;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  #casos-listagem :is(.case-card--listing:hover, .case-card--listing:focus-visible) .case-card__content {
+    flex: 1 1 auto;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+/* Pagination */
+.cw-casos__pagination[hidden] {
+  display: none;
+}
+
+.cw-casos__pagination:not([hidden]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-3xl);
+}
+
+/* Pagination — mobile margins */
+@media (max-width: 1024px) {
+  #casos-listagem .cw-casos__pagination:not([hidden]) {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+  }
+}
+
+/* Empty state */
+.cw-casos__empty {
+  padding: var(--space-3xl) 0;
+  text-align: center;
+  color: var(--neutral-500);
+}

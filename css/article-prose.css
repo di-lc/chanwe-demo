@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Article prose
+   Shared markdown typography (.detail-page__md)
+   Base: styles.css
+   ========================================================================== */
+
+/* Base */
+article.detail-page .body-text.detail-page__md {
+  margin: 0;
+  text-align: left;
+  text-wrap: pretty;
+  white-space: normal;
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  letter-spacing: 0.01em;
+  color: var(--neutral-900);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  max-width: none;
+}
+
+/* Flow — flush edges */
+article.detail-page .detail-page__md > *:first-child {
+  margin-top: 0;
+}
+
+article.detail-page .detail-page__md > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Headings */
+article.detail-page .detail-page__md h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-subtitle);
+  letter-spacing: -0.02em;
+  color: var(--neutral-900);
+  margin: var(--space-2xl) 0 var(--space-md);
+}
+
+article.detail-page .detail-page__md h2:first-child {
+  margin-top: 0;
+}
+
+article.detail-page .detail-page__md h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-subtitle);
+  color: var(--neutral-900);
+  margin: var(--space-xl) 0 var(--space-sm);
+}
+
+article.detail-page .detail-page__md h3:first-child {
+  margin-top: 0;
+}
+
+/* Paragraphs */
+article.detail-page .detail-page__md p {
+  margin: 0 0 var(--space-lg);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  letter-spacing: 0.01em;
+  color: var(--neutral-900);
+}
+
+/* Lists */
+article.detail-page .detail-page__md ul,
+article.detail-page .detail-page__md ol {
+  margin: var(--space-lg) 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--neutral-900);
+}
+
+article.detail-page .detail-page__md ul {
+  list-style: none;
+}
+
+article.detail-page .detail-page__md ul li {
+  position: relative;
+  display: block;
+  padding-left: calc(var(--space-md) + 2px);
+  color: var(--neutral-900);
+}
+
+article.detail-page .detail-page__md ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 5px;
+  height: 5px;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: var(--primary);
+  box-sizing: border-box;
+  transform: translateY(-50%);
+}
+
+article.detail-page .detail-page__md ul li > p {
+  margin: 0 0 var(--space-sm);
+}
+
+article.detail-page .detail-page__md ul li > p:last-child {
+  margin-bottom: 0;
+}
+
+article.detail-page .detail-page__md ol {
+  list-style-type: decimal;
+  padding-left: 1.25rem;
+}
+
+article.detail-page .detail-page__md li {
+  margin: 0 0 var(--space-sm);
+}
+
+article.detail-page .detail-page__md ol > li::marker {
+  color: var(--neutral-400);
+}
+
+article.detail-page .detail-page__md li:last-child {
+  margin-bottom: 0;
+}
+
+/* Emphasis */
+article.detail-page .detail-page__md strong {
+  font-weight: var(--font-weight-semibold);
+  color: var(--neutral-900);
+}
+
+article.detail-page .detail-page__md em {
+  font-style: italic;
+}
+
+/* Blockquote */
+article.detail-page .detail-page__md blockquote {
+  margin: var(--space-xl) 0;
+  padding: var(--space-md) 0 var(--space-md) var(--space-lg);
+  border-left: 1px solid var(--primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  font-style: italic;
+  line-height: var(--leading-balanced);
+  color: var(--neutral-500);
+}
+
+article.detail-page .detail-page__md blockquote p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* Links */
+article.detail-page .detail-page__md a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+article.detail-page .detail-page__md a:hover {
+  color: var(--primary-hover);
+}
+
+/* Responsive — ≤768px */
+@media (max-width: 768px) {
+  article.detail-page .detail-page__md h2 {
+    font-size: var(--text-prose-h2-mobile);
+    margin-top: var(--space-xl);
+  }
+}

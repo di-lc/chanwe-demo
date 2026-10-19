@@ -1,0 +1,673 @@
+/* ==========================================================================
+   Listing layout
+   Shared: perspectivas, informes, casos
+   Base: styles.css + interior.css
+   ========================================================================== */
+
+@import "components/carousel.css";
+
+/* Container */
+.cw-perspectivas__container {
+    max-width: var(--container-max);
+}
+
+/* Page scope */
+#perspectivas {
+    background-color: var(--neutral-100);
+    padding-bottom: var(--space-section-y);
+}
+
+/* Last block flush */
+#perspectivas > :last-child {
+    margin-bottom: 0;
+}
+
+#perspectivas .cw-perspectivas__section:last-of-type {
+    padding-bottom: 0;
+}
+
+/* Hero tag */
+.cw-perspectivas__hero .section-tag {
+    color: var(--primary);
+}
+
+.cw-perspectivas__hero .page-lead,
+.cw-perspectivas__hero .highlight-brand {
+    margin-bottom: 0;
+}
+
+.cw-perspectivas__hero .highlight-brand {
+    text-align: center;
+}
+
+#perspectivas .cw-perspectivas__hero,
+#informes .cw-perspectivas__hero,
+#casos-listagem .cw-perspectivas__hero {
+    padding-bottom: 0;
+}
+
+.cw-perspectivas__section {
+    padding: var(--space-xl) 0;
+    position: relative;
+}
+
+.cw-perspectivas__section--surface {
+    background-color: var(--neutral-100);
+}
+
+.cw-perspectivas__section--base {
+    background-color: var(--neutral-100);
+}
+
+/* Listing section — divider rhythm */
+#perspectivas .cw-perspectivas__section--base,
+#informes .cw-informes__section--base,
+#casos-listagem .cw-casos__section--base {
+    margin-top: var(--space-2xl);
+    padding-top: 0;
+    border-top: none;
+}
+
+#perspectivas .cw-perspectivas__section--base::before,
+#informes .cw-informes__section--base::before,
+#casos-listagem .cw-casos__section--base::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: min(
+        calc(100% - 2 * var(--space-3xl)),
+        calc(var(--container-max) - 2 * var(--space-3xl))
+    );
+    margin-inline: auto;
+    margin-bottom: 0;
+    background-color: var(--ui-border-default);
+}
+
+/* Main — pad after divider */
+#perspectivas .cw-perspectivas__section--base .cw-perspectivas__main,
+#informes .cw-informes__section--base .cw-informes__main,
+#casos-listagem .cw-casos__section--base .cw-casos__main {
+    padding-top: var(--space-2xl);
+}
+
+/* Search */
+.cw-perspectivas__search {
+    position: relative;
+    width: 100%;
+    margin-top: 0;
+}
+
+.cw-perspectivas__search-input.form-input {
+    min-height: var(--cw-search-input-min-h);
+    padding: var(--space-2xs) calc(var(--space-md) + var(--cw-search-icon-size) + var(--space-xs)) var(--space-2xs) var(--space-md);
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+}
+
+.cw-perspectivas__search-input {
+    padding-right: calc(var(--space-md) + var(--cw-search-icon-size) + var(--space-xs));
+}
+
+.cw-perspectivas__search-icon {
+    position: absolute;
+    right: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--cw-search-icon-size);
+    height: var(--cw-search-icon-size);
+    pointer-events: none;
+    filter: var(--filter-ui-icon-muted);
+    transition: filter var(--transition-fast);
+}
+
+.cw-perspectivas__search-clear {
+    position: absolute;
+    right: calc(var(--space-md) + var(--cw-search-icon-size) + var(--space-sm));
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--cw-search-clear-hit);
+    height: var(--cw-search-clear-hit);
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius);
+    background: transparent;
+    cursor: pointer;
+    color: inherit;
+}
+
+.cw-perspectivas__search-clear[hidden] {
+    display: none;
+}
+
+.cw-perspectivas__search-clear img {
+    width: var(--cw-search-icon-size);
+    height: var(--cw-search-icon-size);
+    display: block;
+    filter: var(--filter-ui-icon-muted);
+    transition: filter var(--transition-fast);
+}
+
+.cw-perspectivas__search-clear:hover img,
+.cw-perspectivas__search-clear:focus-visible img {
+    filter: var(--filter-ui-icon-active);
+}
+
+.cw-perspectivas__search-clear:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.cw-perspectivas__search:focus-within .cw-perspectivas__search-icon {
+    filter: var(--filter-ui-icon-active);
+}
+
+.cw-perspectivas__search--has-query .cw-perspectivas__search-input {
+    padding-right: calc(var(--space-md) + var(--cw-search-icon-size) + var(--space-sm) + var(--cw-search-clear-hit) + var(--space-xs));
+}
+
+/* Two-column layout */
+.cw-perspectivas__layout,
+.cw-informes__layout,
+.cw-casos__layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 0;
+    align-items: start;
+    /* Match hero horizontal inset */
+    padding-inline: var(--space-3xl);
+}
+
+
+.cw-perspectivas__main,
+.cw-informes__main,
+.cw-casos__main {
+    min-width: 0;
+    padding: 0 var(--space-2xl) 0 0;
+}
+
+/* Listing list — full width */
+#perspectivas .insights__list {
+    max-width: none;
+    margin: 0;
+}
+
+/* First card — no double border */
+#perspectivas .insight-row:first-child {
+    border-top: none;
+}
+
+/* Card image — full row height */
+#perspectivas .insight-row {
+    align-items: stretch;
+}
+
+#perspectivas .insight-row__media {
+    aspect-ratio: unset;
+    height: 100%;
+    min-height: 200px;
+}
+
+/* Listing cards — desktop pad */
+@media (min-width: 1025px) {
+    #perspectivas .cw-perspectivas__main .insight-row {
+        padding: var(--space-xl);
+        gap: var(--space-lg);
+    }
+
+    /* Content — no extra right pad */
+    #perspectivas .cw-perspectivas__main .insight-row__content {
+        padding-right: 0;
+    }
+}
+
+/* Sidebar */
+.cw-perspectivas__sidebar {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.cw-sidebar__inner {
+    position: sticky;
+    top: var(--cw-sidebar-sticky-top);
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    gap: var(--space-xl);
+    width: 100%;
+    padding: var(--space-2xl) 0;
+}
+
+/* Main column — divider (≥1025) */
+@media (min-width: 1025px) {
+    #perspectivas .cw-perspectivas__layout > .cw-perspectivas__main,
+    #informes .cw-informes__layout > .cw-informes__main,
+    #casos-listagem .cw-casos__layout > .cw-casos__main {
+        position: relative;
+        /* Min height — empty state */
+        min-height: calc(var(--space-2xl) * 8);
+    }
+
+    #perspectivas .cw-perspectivas__layout > .cw-perspectivas__main::after,
+    #informes .cw-informes__layout > .cw-informes__main::after,
+    #casos-listagem .cw-casos__layout > .cw-casos__main::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: var(--ui-border-default);
+        pointer-events: none;
+    }
+
+    #perspectivas .cw-perspectivas__section--base .cw-perspectivas__pagination,
+    #informes .cw-informes__section--base .cw-informes__pagination {
+        margin-bottom: var(--space-2xl);
+    }
+}
+
+.cw-sidebar__block {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-inline: var(--space-lg);
+}
+
+/* Filter list — full-width rules */
+.cw-sidebar__block:has(.cw-sidebar__list) {
+    padding-inline: 0;
+}
+
+.cw-sidebar__block:has(.cw-sidebar__list) .cw-sidebar__title {
+    margin-inline: var(--space-lg);
+}
+
+/* Search — left inset like titles; input spans to block edge */
+.cw-sidebar__block:has(.cw-perspectivas__search) {
+    padding-inline: var(--space-lg) 0;
+}
+
+.cw-sidebar__block:has(.cw-perspectivas__search) .cw-perspectivas__search,
+.cw-sidebar__block:has(.cw-perspectivas__search) .cw-perspectivas__search-input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Sidebar titles */
+.cw-sidebar__title {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 var(--space-xs) 0;
+    padding: 0;
+    border-bottom: none;
+    text-align: left;
+    font-family: var(--cw-overline-font-family);
+    font-size: var(--cw-overline-font-size);
+    font-weight: var(--cw-overline-font-weight);
+    letter-spacing: var(--cw-overline-letter-spacing);
+    line-height: 1;
+    text-transform: var(--cw-overline-text-transform);
+    color: var(--neutral-500);
+    -webkit-text-fill-color: var(--neutral-500);
+}
+
+.cw-sidebar__title--plain {
+    margin-bottom: 0;
+}
+
+.cw-sidebar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.cw-sidebar__item {
+    display: flex;
+}
+
+.cw-sidebar__btn {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+    color: var(--neutral-500);
+    padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    gap: var(--space-xs);
+}
+
+/* Row rule */
+.cw-sidebar__btn::after {
+    content: "";
+    position: absolute;
+    left: var(--space-lg);
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: var(--ui-border-default);
+}
+
+.cw-sidebar__btn:hover {
+    color: var(--neutral-900);
+}
+
+.cw-sidebar__btn.is-active {
+    color: var(--primary);
+    font-weight: var(--font-weight-medium);
+}
+
+.cw-sidebar__btn-label {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: capitalize;
+    text-align: left;
+}
+
+.cw-sidebar__count {
+    flex-shrink: 0;
+    margin-left: var(--space-xs);
+    font-size: var(--text-xs);
+    color: var(--neutral-300);
+    font-variant-numeric: tabular-nums;
+}
+
+.cw-sidebar__btn.is-active .cw-sidebar__count {
+    color: var(--primary);
+    opacity: 0.6;
+}
+
+/* Tag cloud */
+.cw-sidebar__cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--space-xs);
+    padding-top: var(--space-sm);
+}
+
+/* Tag pills */
+.insight-row__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+}
+
+.cw-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--cw-tag-pill-gap);
+    padding: var(--cw-tag-pill-padding-y) var(--space-sm);
+    border-radius: 100px;
+    border: 1px solid var(--ui-border-default);
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    line-height: 1;
+    color: var(--neutral-500);
+    white-space: nowrap;
+    background: transparent;
+    cursor: default;
+}
+
+/* Tipo */
+.cw-tag--tipo {
+    border-color: var(--primary);
+    color: var(--primary);
+    text-transform: capitalize;
+}
+
+/* Filter tag */
+.cw-tag--filter {
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+.cw-tag--filter:hover {
+    border-color: var(--neutral-400);
+    color: var(--neutral-900);
+}
+
+.cw-tag--filter.is-active {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+}
+
+.cw-tag__count {
+    color: var(--neutral-400);
+    font-size: var(--text-tag-count);
+}
+
+.cw-tag--filter.is-active .cw-tag__count {
+    color: var(--primary);
+    opacity: 0.6;
+}
+
+/* Pagination */
+.cw-perspectivas__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
+}
+
+.cw-pagination__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 var(--space-xs);
+    border-radius: var(--radius);
+    border: 1px solid var(--ui-border-default);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    line-height: 1;
+    color: var(--neutral-700);
+    background: var(--neutral-0);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast),
+        background var(--transition-fast), transform var(--transition-fast);
+}
+
+.cw-pagination__btn:hover:not(:disabled) {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.cw-pagination__btn.is-active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--ui-white);
+    font-weight: var(--font-weight-medium);
+}
+
+.cw-pagination__btn:disabled {
+    opacity: var(--ui-disabled-opacity);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.cw-pagination__ellipsis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    font-size: var(--text-sm);
+    color: var(--neutral-400);
+    user-select: none;
+}
+
+/* Empty state */
+.cw-perspectivas__empty {
+    padding: var(--space-3xl) 0;
+    text-align: center;
+    color: var(--neutral-500);
+}
+
+/* Responsive — ≤1024px */
+@media (max-width: 1024px) {
+    /* Mobile — hero divider, single column */
+    #perspectivas .cw-perspectivas__hero .cw-perspectivas__container::after,
+    #informes .cw-perspectivas__hero .cw-perspectivas__container::after,
+    #casos-listagem .cw-perspectivas__hero .cw-perspectivas__container::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: var(--ui-border-default);
+        margin-top: var(--space-2xl);
+    }
+
+    #perspectivas .cw-perspectivas__section--base,
+    #informes .cw-informes__section--base,
+    #casos-listagem .cw-casos__section--base {
+        margin-top: 0;
+    }
+
+    #perspectivas .cw-perspectivas__section--base::before,
+    #informes .cw-informes__section--base::before,
+    #casos-listagem .cw-casos__section--base::before {
+        display: none;
+        content: none;
+    }
+
+    .cw-perspectivas__layout,
+    .cw-informes__layout,
+    .cw-casos__layout {
+        grid-template-columns: 1fr;
+        padding-inline: 0;
+        background: var(--neutral-100);
+    }
+
+    .cw-perspectivas__main {
+        padding-right: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+
+    #perspectivas .cw-perspectivas__section--base .cw-perspectivas__main,
+    #informes .cw-informes__section--base .cw-informes__main,
+    #casos-listagem .cw-casos__section--base .cw-casos__main {
+        order: 1;
+        width: 100%;
+        min-width: 0;
+        padding: var(--space-2xl) var(--space-lg) 0;
+        box-sizing: border-box;
+    }
+
+    /* Mobile sidebar */
+    #perspectivas .cw-perspectivas__layout > .cw-perspectivas__sidebar,
+    #informes .cw-informes__layout > .cw-perspectivas__sidebar,
+    #casos-listagem .cw-casos__layout > .cw-perspectivas__sidebar {
+        order: 2;
+        width: 100%;
+        max-width: 100%;
+        align-self: stretch;
+        justify-content: flex-start;
+        align-items: stretch;
+        background-color: var(--neutral-100);
+        border-left: none;
+        border-top: 1px solid var(--ui-border-default);
+        padding-inline: var(--space-lg);
+        box-sizing: border-box;
+    }
+
+    #perspectivas .cw-perspectivas__layout > .cw-perspectivas__sidebar > .cw-sidebar__inner,
+    #informes .cw-informes__layout > .cw-perspectivas__sidebar > .cw-sidebar__inner,
+    #casos-listagem .cw-casos__layout > .cw-perspectivas__sidebar > .cw-sidebar__inner {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        overflow: visible;
+        margin: 0;
+        padding: var(--space-lg) 0 0;
+        gap: var(--space-xl);
+        text-align: left;
+        box-sizing: border-box;
+        border-left: none;
+    }
+
+    #perspectivas .cw-perspectivas__layout > .cw-perspectivas__sidebar .cw-sidebar__block,
+    #informes .cw-informes__layout > .cw-perspectivas__sidebar .cw-sidebar__block,
+    #casos-listagem .cw-casos__layout > .cw-perspectivas__sidebar .cw-sidebar__block {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        align-self: stretch;
+        align-items: stretch;
+        padding-inline: 0;
+        box-sizing: border-box;
+    }
+
+    #perspectivas .cw-perspectivas__layout > .cw-perspectivas__sidebar .cw-sidebar__block:has(.cw-sidebar__list),
+    #informes .cw-informes__layout > .cw-perspectivas__sidebar .cw-sidebar__block:has(.cw-sidebar__list),
+    #casos-listagem .cw-casos__layout > .cw-perspectivas__sidebar .cw-sidebar__block:has(.cw-sidebar__list) {
+        padding-inline: 0;
+    }
+
+    #perspectivas .cw-perspectivas__layout > .cw-perspectivas__sidebar .cw-sidebar__block:has(.cw-sidebar__list) .cw-sidebar__title,
+    #informes .cw-informes__layout > .cw-perspectivas__sidebar .cw-sidebar__block:has(.cw-sidebar__list) .cw-sidebar__title,
+    #casos-listagem .cw-casos__layout > .cw-perspectivas__sidebar .cw-sidebar__block:has(.cw-sidebar__list) .cw-sidebar__title {
+        margin-inline: 0;
+    }
+
+    #perspectivas .cw-perspectivas__layout > .cw-perspectivas__sidebar .cw-sidebar__btn,
+    #informes .cw-informes__layout > .cw-perspectivas__sidebar .cw-sidebar__btn,
+    #casos-listagem .cw-casos__layout > .cw-perspectivas__sidebar .cw-sidebar__btn {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+        text-align: left;
+        box-sizing: border-box;
+    }
+
+    #perspectivas .cw-perspectivas__layout > .cw-perspectivas__sidebar .cw-sidebar__btn::after,
+    #informes .cw-informes__layout > .cw-perspectivas__sidebar .cw-sidebar__btn::after,
+    #casos-listagem .cw-casos__layout > .cw-perspectivas__sidebar .cw-sidebar__btn::after {
+        left: 0;
+        right: 0;
+    }
+
+    #perspectivas .cw-perspectivas__layout > .cw-perspectivas__sidebar .cw-sidebar__list,
+    #informes .cw-informes__layout > .cw-perspectivas__sidebar .cw-sidebar__list,
+    #casos-listagem .cw-casos__layout > .cw-perspectivas__sidebar .cw-sidebar__list {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

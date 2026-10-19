@@ -1,0 +1,32 @@
+/* Fonts load via <link> in HTML (preconnect + parallel fetch; not @import). */
+
+/* ==========================================================================
+   Main stylesheet entry
+   Layer order: base → components → sections → layout
+   Page CSS (casos.css, informes.css, …) loads after and overrides by scope.
+   Avoid !important — use context selectors (.cases__grid, .case-card--listing, …).
+   ========================================================================== */
+
+@import "base/reset.css?v=20260731";
+@import "base/tokens.css?v=20260731";
+@import "base/shared.css?v=20260731";
+@import "base/typography.css?v=20260731";
+@import "components/buttons.css?v=20260731";
+@import "components/cards.css?v=20260731";
+@import "components/pillar-cards.css?v=20260901c";
+@import "components/tags-section.css?v=20260731";
+@import "components/nav.css?v=20260928a";
+@import "sections/home/home.css?v=20260731";
+@import "components/forms.css?v=20260731";
+@import "components/case-card.css?v=20260731";
+@import "sections/home/home-tail.css?v=20260731";
+@import "components/custom-select.css?v=20260731";
+@import "components/viewport-accent.css?v=20260731";
+@import "sections/home/insights.css?v=20260809j";
+@import "sections/home/assessment.css?v=20260731";
+@import "components/cta.css?v=20260731";
+@import "components/footer.css?v=20260731";
+@import "layout/utilities.css?v=20260731";
+@import "layout/responsive.css?v=20260928a";
+@import "base/reduced-motion.css?v=20260731";
+

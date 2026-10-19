@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Interior pages
+   Base: styles.css
+   ========================================================================== */
+
+/* Page base */
+body {
+    background-color: var(--neutral-100);
+}
+
+body:not(.page-home) .nav__link.active,
+body:not(.page-home) .nav__dropdown-item.active {
+    color: var(--primary);
+}
+
+/* Nav — productos dropdown active */
+body:not(.page-home) .nav__dropdown-trigger.active .nav__dropdown-chevron {
+    color: var(--primary);
+}
+
+/* Detail shell */
+.main--shell {
+    min-height: 70vh;
+}
+
+/* Interior top offset */
+body:not(.page-home) [data-component="nav"] {
+    min-height: 0;
+}
+
+body:not(.page-home) {
+    --cw-interior-offset-top: clamp(120px, 10vh + 64px, 144px);
+}
+
+/* Responsive — ≤1024px */
+@media (max-width: 1024px) {
+    body:not(.page-home) {
+        --cw-interior-offset-top: clamp(88px, 8vh + 56px, 108px);
+    }
+}
+
+/* Hero top pad */
+body:not(.page-home) .cw-casos__hero,
+body:not(.page-home) .cw-services__hero,
+body:not(.page-home) .cw-metodologia__hero,
+body:not(.page-home) .cw-newsletter__hero,
+body:not(.page-home) .cw-pulse__hero,
+body:not(.page-home) .cw-eval-landing__hero,
+body:not(.page-home) .cw-team__hero,
+body:not(.page-home) .cw-perspectivas__hero {
+    padding-top: var(--cw-interior-offset-top);
+    padding-bottom: var(--space-xl);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Eval landing hero tag — primary overline (styles.css bundle; not only evaluacion.css) */
+body.page-evaluacion .cw-eval-landing__hero-container > .section-tag {
+    color: var(--primary);
+}
+
+body.page-evaluacion .cw-eval-landing__block-tag {
+    color: var(--primary);
+}
+
+/* Contacto */
+body:not(.page-home) #contacto-content.section {
+    padding-top: var(--cw-interior-offset-top);
+}
+
+/* Detail pages */
+body:not(.page-home) article.detail-page .detail-page__section.section {
+    padding-top: var(--cw-interior-offset-top);
+}
+
+/* Mi-espacio */
+body:not(.page-home) .page-mi-espacio main {
+    padding-top: var(--cw-interior-offset-top);
+}
+
+/* Hero bottom rule — shared interior pages */
+.cw-interior__divider {
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: var(--space-2xl) 0 0 0;
+    padding: 0;
+    border: none;
+    background-color: var(--ui-border-default);
+    font-size: 0;
+    line-height: 0;
+}
+
+/* Deploy safety — eval landing must never stay hidden after GSAP/cache issues */
+body.page-evaluacion #eval-landing-content .section-tag,
+body.page-evaluacion #eval-landing-content .page-title,
+body.page-evaluacion #eval-landing-content .assessment__step {
+    opacity: 1 !important;
+    visibility: visible !important;
+}

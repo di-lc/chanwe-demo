@@ -1,0 +1,18 @@
+{
+  "builtAt": "2026-10-19T17:10:07.612Z",
+  "portfolioRoot": "/chanwe-demo",
+  "includes": [
+    "marketing-site",
+    "portal",
+    "admin"
+  ],
+  "excludes": [
+    "server/",
+    "DATABASE_URL",
+    "production Chanwe hosts"
+  ],
+  "routing": "HashRouter for /portal and /admin (VITE_PORTFOLIO_DEMO=1)",
+  "nextSteps": [
+    "new empty GitHub repo + GitHub Pages"
+  ]
+}

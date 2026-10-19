@@ -1,0 +1,41 @@
+
+/* CTA Footer */
+.cases__cta-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-2xl);
+  width: 100%;
+}
+
+/*
+ * Section CTA gap — content/grid → button(s)
+ * Desktop (>1024): 48px (--space-2xl) on each rule below
+ * Tablet/mobile (≤1024 / ≤480): 32px (--space-xl)
+ */
+@media (max-width: 1024px) {
+  .hero__content > .hero__actions,
+  .cases__cta-wrapper,
+  .assessment__cta {
+    margin-top: var(--space-xl);
+  }
+
+  .final-cta__body {
+    margin-bottom: var(--space-xl);
+  }
+}
+
+/* ≤1024px: services carousel mobile layout */
+@media (max-width: 1024px) {
+  .services .services__grid {
+    gap: 0;
+  }
+
+  .services .services__carousel {
+    margin-top: 0;
+  }
+
+  .services .services__cta {
+    margin-top: var(--space-xl);
+  }
+}
+

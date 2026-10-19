@@ -1,0 +1,308 @@
+/* ============================================
+   Responsive — tablet
+   ============================================ */
+@media (max-width: 1024px) {
+  .nav {
+    padding: 0 var(--space-2xl);
+  }
+
+  /* Hero canvas + background: avoid side band ≤1024 (viewport vs box) */
+  .hero {
+    width: 100%;
+    min-width: 100%;
+    max-width: none;
+  }
+
+  .hero__canvas-container,
+  #hero-video-canvas {
+    width: 100%;
+    min-width: 100%;
+    right: 0;
+  }
+
+  .section-tag {
+    margin-bottom: var(--cw-tag-to-title-gap);
+  }
+}
+
+/* ============================================
+   Responsive — mobile
+   ============================================ */
+@media (max-width: 1024px) {
+  :root {
+    --space-section-y: var(--space-3xl);
+    /* 80px — 160px between adjacent .section blocks */
+  }
+
+  .nav {
+    height: 56px;
+    padding: 0 var(--space-lg);
+  }
+
+  .container {
+    padding: 0 var(--space-lg);
+  }
+
+  /* Typography — compact scale (≤1024): hero 40 / h1 36 / h2 32 */
+  .hero__content .h1 {
+    font-size: var(--text-hero-tablet);
+    line-height: var(--leading-condensed);
+    text-transform: uppercase;
+  }
+
+  h1,
+  .h1,
+  .page-title {
+    font-size: var(--text-detail-title-md);
+  }
+
+  h2,
+  .h2,
+  .problem__title,
+  .concept__title,
+  .statement__title,
+  .cases__title,
+  .method__title,
+  .services__title,
+  .assessment__title,
+  .final-cta__title {
+    font-size: var(--text-detail-title-sm);
+    line-height: var(--leading-heading);
+  }
+
+  .statement__step.statement__lead,
+  .statement__step.statement__closing,
+  .problem__closing,
+  .concept__lead {
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+  }
+
+  .hero {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero__overlay {
+    background: linear-gradient(
+      to top,
+      var(--ui-surface-tonal-95) 0%,
+      var(--ui-surface-tonal-60) 60%,
+      transparent 100%
+    );
+  }
+
+  .hero__container {
+    text-align: center;
+    transform: translateX(-50%);
+    /* Zero blind vertical offset */
+    top: clamp(88px, 8vh + 56px, 108px);
+    /* 56px nav + ~32–52px below header */
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__content > .h1 {
+    width: 100%;
+    padding-inline-end: 0;
+  }
+
+  .hero__content .subtitle {
+    font-size: var(--text-base);
+  }
+
+  .nav__menu {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background: var(--neutral-0);
+    border-bottom: 1px solid var(--neutral-200);
+    padding: var(--space-xl) var(--space-lg);
+    flex-direction: column;
+    display: none;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .nav__menu.active {
+    display: flex;
+  }
+
+  body.nav-menu-open {
+    overflow: hidden;
+  }
+
+  .nav__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    width: 100%;
+  }
+
+  .nav__link {
+    font-size: var(--text-base);
+  }
+
+  /* Touch: no tap flash or sticky hover/focus background in drawer */
+  .nav__menu :is(a, button) {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    .nav__menu .nav__link:hover,
+    .nav__menu .nav__dropdown-trigger:hover,
+    .nav__menu .nav__mobile-lang-link:hover {
+      color: var(--neutral-500);
+    }
+
+    .nav__menu .nav__dropdown-item:hover {
+      background-color: transparent;
+      color: var(--neutral-900);
+    }
+
+    .nav__menu .nav__dropdown-item.active:hover {
+      background-color: var(--neutral-100);
+      color: var(--primary);
+    }
+
+    .nav__menu :is(.nav__link, .nav__dropdown-trigger, .nav__dropdown-item, .nav__mobile-lang-link):is(:focus, :active) {
+      background-color: transparent;
+    }
+  }
+
+  .nav__sep {
+    display: none;
+  }
+
+  .mobile-nav-cta {
+    display: inline-flex;
+    margin-top: var(--space-md);
+    width: 100%;
+    /* Button takes up the entire drawer */
+  }
+
+  .nav__mobile-lang-link {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-top: var(--space-xl);
+    color: var(--primary);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .nav__actions .btn-primary {
+    font-size: var(--text-sm);
+    padding: var(--space-xs) var(--space-md);
+    min-height: 36px;
+    border-radius: var(--radius);
+  }
+
+  .nav__lang {
+    margin-right: var(--space-xs);
+  }
+
+  .nav__actions .btn-secondary {
+    display: none;
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+
+  .nav__hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav__hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav__hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* CONCEPT MOBILE */
+  .concept__media {
+    min-height: 320px;
+    height: auto;
+  }
+
+  .concept__parallax-wrapper {
+    position: relative;
+    height: 320px;
+  }
+}
+
+/* ============================================
+   Responsive — small mobile
+   ============================================ */
+@media (max-width: 480px) {
+  :root {
+    --space-section-y: var(--space-2xl);
+    /* 48px — 96px between adjacent .section blocks */
+  }
+
+  /* Hero H1: 40px from ≤1024 typography block (no separate clamp here) */
+
+  /* ≤480px: Descubrí más in-flow; Pulse + Resultados in statement (desktop hero CTAs hidden) */
+  .page-home .hero {
+    height: 100dvh;
+    height: 100svh;
+  }
+
+  .hero > .hero__scroll-indicator {
+    display: none;
+  }
+
+  .hero__content > .hero__actions {
+    display: none;
+  }
+
+  .hero__scroll-indicator--mobile {
+    display: flex;
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    align-self: center;
+    width: max-content;
+    max-width: calc(100% - 48px);
+    margin-top: var(--space-xl);
+    margin-left: auto;
+    margin-right: auto;
+    pointer-events: auto;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    z-index: var(--z-sticky);
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    background: transparent;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    will-change: transform;
+  }
+
+  .hero__scroll-indicator--mobile .hero__scroll-label {
+    white-space: nowrap;
+  }
+
+  .hero__scroll-indicator--mobile .hero__scroll-arrow-img {
+    flex-shrink: 0;
+  }
+
+  .services__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

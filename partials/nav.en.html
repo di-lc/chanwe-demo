@@ -1,0 +1,58 @@
+<a href="#main-content" class="skip-link">Skip to content</a>
+<header class="nav" id="main-nav" role="banner" data-component-root="nav">
+  <a href="index.html" class="nav__logo" aria-label="Chanwe Home">
+    <img src="assets/02-logo/chanwe-logo-black.svg" alt="Chanwe Logo" width="120" height="24">
+  </a>
+
+  <nav class="nav__menu" aria-label="Main Navigation" id="mobile-menu">
+    <ul class="nav__links" role="list">
+      <li><a href="index.html" class="nav__link">Home</a></li>
+      <li><a href="metodologia.html" class="nav__link">Methodology</a></li>
+      <li><a href="servicios.html" class="nav__link">Services</a></li>
+      <li class="nav__dropdown-wrapper" id="productos-wrapper">
+        <button type="button" class="nav__link nav__dropdown-trigger" aria-expanded="false" aria-controls="productos-dropdown" id="productos-trigger">
+          Products
+          <svg class="nav__dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <use href="assets/01-icons/general-icons/chanwe-general-icons.sprite.svg#general-chanwe-icon-chevron-down"></use>
+          </svg>
+        </button>
+        <ul class="nav__dropdown" id="productos-dropdown" hidden>
+          <li><a href="evaluacion" class="nav__dropdown-item">Pulse</a></li>
+          <li><a href="pulse" class="nav__dropdown-item">Cerebro</a></li>
+          <li><a href="newsletter.html" class="nav__dropdown-item">Newsletter</a></li>
+        </ul>
+      </li>
+      <li class="nav__sep" aria-hidden="true">|</li>
+      <li class="nav__dropdown-wrapper" id="publicaciones-wrapper">
+        <button type="button" class="nav__link nav__dropdown-trigger" aria-expanded="false" aria-controls="publicaciones-dropdown" id="publicaciones-trigger">
+          Publications
+          <svg class="nav__dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <use href="assets/01-icons/general-icons/chanwe-general-icons.sprite.svg#general-chanwe-icon-chevron-down"></use>
+          </svg>
+        </button>
+        <ul class="nav__dropdown" id="publicaciones-dropdown" hidden>
+          <li><a href="informes.html" class="nav__dropdown-item">Reports</a></li>
+          <li><a href="perspectivas.html" class="nav__dropdown-item">Insights</a></li>
+          <li><a href="casos.html" class="nav__dropdown-item">Cases</a></li>
+        </ul>
+      </li>
+    </ul>
+    <a href="../index.html" class="nav__link nav__mobile-lang-link" lang="es" hreflang="es" data-lang-target="es">ES</a>
+    <a href="contacto.html" class="btn btn-secondary mobile-nav-cta">Contact</a>
+  </nav>
+
+  <div class="nav__actions">
+    <div class="nav__lang" aria-label="Language">
+      <a href="../index.html" class="nav__lang-link" lang="es" hreflang="es" data-lang-target="es">ES</a>
+      <span class="nav__lang-sep" aria-hidden="true">/</span>
+      <a href="index.html" class="nav__lang-link" lang="en" hreflang="en" data-lang-target="en">EN</a>
+    </div>
+    <a href="http://localhost:8082/access" class="btn btn-primary">Portal</a>
+    <a href="contacto.html" class="btn btn-secondary">Contact</a>
+    <button type="button" class="nav__hamburger" aria-expanded="false" aria-label="Open menu" aria-controls="mobile-menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+</header>

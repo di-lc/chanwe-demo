@@ -1,0 +1,105 @@
+/* ==========================================================================
+   prefers-reduced-motion — static UI interactions (no hover lift / scale)
+   Loaded last via styles.css. Uses !important to win over page-scoped CSS.
+   JS motion (GSAP) is handled separately in main.js and page scripts.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Forms — no hover/focus lift */
+  .form-input:hover,
+  .form-input:focus-visible,
+  .form-textarea:hover,
+  .form-textarea:focus-visible {
+    transform: none !important;
+  }
+
+  /* Buttons — no scale, lift, or shimmer sweep */
+  .btn:hover,
+  .btn:active,
+  .btn-primary:hover,
+  .btn-primary:active,
+  .btn-secondary:hover,
+  .btn-secondary:active {
+    transform: none !important;
+  }
+
+  .btn-primary:hover::before,
+  .btn-primary:active::before,
+  .btn-secondary:hover::before,
+  .btn-secondary:active::before {
+    transform: translateX(-100%) skewX(-15deg) !important;
+  }
+
+  .btn-secondary:hover::before,
+  .btn-secondary:active::before {
+    transform: translateX(-200%) skewX(-5deg) !important;
+  }
+
+  .text-link:hover .text-link__icon,
+  .text-link:focus-visible .text-link__icon {
+    transform: none !important;
+  }
+
+  /* Cards — no lift; footer expand is instant (transition-duration above) */
+  .card-default:hover,
+  .card-dark:hover {
+    transform: none !important;
+  }
+
+  .case-card__footer,
+  .case-card__content,
+  .case-card__img {
+    transition: none !important;
+  }
+
+  /* Home / listing carousels & nav */
+  .services__nav-btn:hover,
+  .services__nav-btn:active,
+  .cw-carousel__nav-btn:hover,
+  .cw-pagination__btn:hover:not(:disabled),
+  .informe-card__download:hover,
+  .informe-card__download:active {
+    transform: none !important;
+  }
+
+  .services__slide .service-card__icon,
+  .services__slide:hover .service-card__icon {
+    transform: none !important;
+  }
+
+  /* Evaluación & misc controls */
+  .option:hover,
+  .option:active,
+  .btn-back:hover .btn-back-icon,
+  .btn.btn-primary:hover .btn-arrow-icon {
+    transform: none !important;
+  }
+
+  .progress-fill {
+    transition: none !important;
+  }
+
+  /* Custom select — no dropdown fade / arrow spin transition */
+  .select-options {
+    animation: none !important;
+  }
+
+  .select-arrow,
+  .custom-select.active .select-arrow {
+    transition: none !important;
+  }
+
+  .nav__dropdown,
+  .nav__dropdown-chevron {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,65 @@
+/* ============================================
+   Typography
+   ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+  color: var(--neutral-900);
+}
+
+/* H1 — interior; home hero overrides in .hero__content .h1 */
+h1,
+.h1 {
+  font-size: var(--text-3xl);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.025em;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* H2 */
+h2,
+.h2 {
+  font-size: var(--text-3xl);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.025em;
+}
+
+/* H3 */
+h3,
+.h3 {
+  font-size: var(--text-xl);
+  line-height: var(--leading-display);
+  letter-spacing: -0.02em;
+}
+
+/* Subtitle */
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--text-subtitle);
+  font-weight: var(--font-weight-regular);
+  color: var(--neutral-500);
+  line-height: var(--leading-body);
+  max-width: 65ch;
+}
+
+/* Body */
+p,
+.body-text {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-body);
+  color: var(--neutral-500);
+}
+
+/* Lead */
+.body-text.body-text--lead {
+  font-size: var(--text-lg);
+}
+

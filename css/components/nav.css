@@ -1,0 +1,368 @@
+/* ============================================
+   Nav
+   ============================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-overlay);
+  isolation: isolate;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  padding: 0 var(--space-3xl);
+  background: transparent;
+  border-bottom: none;
+  /* Removing border */
+  box-shadow: var(--shadow-none);
+  /* Removing any shadow that creates a 'line' at the base */
+  /* Same stable bar as interior pages (no entry tween / GSAP transform on the nav). */
+  animation: none;
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+/*
+   One continuous glass layer — no second band (::after).
+   Same frost/blur on the bar; short overhang (~6px) so the blur
+   dissolves quickly below the nav.
+*/
+.nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 6px);
+  z-index: var(--z-behind);
+  background: rgba(247, 247, 247, 0.48);
+  background: color-mix(in srgb, var(--neutral-100) 48%, transparent);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  /* Solid through the bar; fade only across the short overhang */
+  mask-image: linear-gradient(
+    to bottom,
+    var(--ui-black) 0%,
+    var(--ui-black) 88%,
+    rgba(0, 0, 0, 0.4) 95%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    var(--ui-black) 0%,
+    var(--ui-black) 88%,
+    rgba(0, 0, 0, 0.4) 95%,
+    transparent 100%
+  );
+  transition:
+    background var(--transition-base),
+    backdrop-filter var(--transition-base),
+    -webkit-backdrop-filter var(--transition-base);
+  pointer-events: none;
+}
+
+/*
+   Home hero — lighter frost so canvas/clouds read through the glass
+   while the hero is pinned / still covering the top. After the next
+   section break (#statement), default frost above applies.
+*/
+.nav.nav--over-hero::before,
+.nav.nav--over-hero.scrolled::before {
+  background: rgba(247, 247, 247, 0.14);
+  background: color-mix(in srgb, var(--neutral-100) 14%, transparent);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+}
+
+@supports not (backdrop-filter: blur(28px)) {
+  .nav::before {
+    background: var(--ui-backdrop-medium);
+  }
+
+  .nav.nav--over-hero::before,
+  .nav.nav--over-hero.scrolled::before {
+    background: var(--ui-backdrop-medium);
+  }
+}
+
+.nav.scrolled {
+  border-bottom: none;
+  box-shadow: var(--shadow-none);
+}
+
+.nav.scrolled::before {
+  background: rgba(247, 247, 247, 0.48);
+  background: color-mix(in srgb, var(--neutral-100) 48%, transparent);
+}
+
+/* Keep hero glass when both classes present (wins over .scrolled::before) */
+.nav.nav--over-hero.scrolled::before {
+  background: rgba(247, 247, 247, 0.14);
+  background: color-mix(in srgb, var(--neutral-100) 14%, transparent);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+}
+
+.nav__logo {
+  flex: 1 1 0%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nav__logo img {
+  height: 21px;
+  /* Reduced by roughly ~12.5% from the old 24px for greater class and balance */
+  width: auto;
+}
+
+.nav__menu {
+  display: flex;
+  justify-content: center;
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.nav__sep {
+  color: var(--ui-border-default);
+  font-size: var(--text-sm);
+  user-select: none;
+  pointer-events: none;
+}
+
+.nav__link {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--neutral-500);
+  font-weight: var(--font-weight-regular);
+  transition: color var(--transition-fast);
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
+  color: var(--primary);
+}
+
+.nav__actions {
+  display: flex;
+  gap: var(--space-sm);
+  /* Global spacing between CTA buttons */
+  align-items: center;
+  flex: 1 1 0%;
+  justify-content: flex-end;
+}
+
+.nav__lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--neutral-400);
+  font-size: var(--text-xs);
+  line-height: 1;
+}
+
+.nav__lang-link {
+  color: var(--neutral-500);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
+}
+
+.nav__lang-link:hover,
+.nav__lang-link:focus-visible,
+.nav__lang-link.is-active {
+  color: var(--primary);
+}
+
+.nav__lang-sep {
+  color: var(--ui-border-default);
+  user-select: none;
+}
+
+.mobile-nav-cta {
+  display: none;
+}
+
+.nav__mobile-lang-link {
+  display: none;
+}
+
+.nav__actions .btn {
+  white-space: nowrap;
+  --nav-actions-btn-height: 36px;
+  height: var(--nav-actions-btn-height);
+  /* Back to original slim header profile */
+  padding: 0 var(--space-md);
+  font-size: var(--text-sm);
+  /* Fits in 36px container */
+}
+
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: var(--space-lg);
+  cursor: pointer;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--neutral-900);
+  transition:
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+  border-radius: var(--radius);
+}
+
+/* ============================================
+   Nav dropdown
+   ============================================ */
+.nav__dropdown-wrapper {
+  position: relative;
+  list-style: none;
+}
+
+.nav__dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-none);
+  color: var(--neutral-500);
+  font-weight: var(--font-weight-regular);
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.nav__dropdown-trigger:hover,
+.nav__dropdown-trigger:focus-visible {
+  color: var(--primary);
+}
+
+.nav__dropdown-chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform var(--transition-smooth);
+  flex-shrink: 0;
+  display: block;
+  color: var(--neutral-500);
+}
+
+.nav__dropdown-trigger:hover .nav__dropdown-chevron,
+.nav__dropdown-wrapper.open .nav__dropdown-chevron {
+  color: var(--primary);
+}
+
+.nav__dropdown-wrapper.open .nav__dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.nav__dropdown {
+  position: absolute;
+  top: 100%;
+  /* Flush with trigger gap is handled by padding-top below */
+  left: 50%;
+  background-color: var(--neutral-0);
+  border: 1px solid var(--ui-border-default);
+  border-radius: var(--radius);
+  padding: var(--space-md) 0 var(--space-xs);
+  /* top padding = visual gap, keeps mouse inside element */
+  list-style: none;
+  min-width: 160px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-6px);
+  transition:
+    opacity var(--transition-fast),
+    transform var(--transition-smooth);
+  z-index: var(--z-nav);
+  box-shadow: var(--shadow-md);
+}
+
+.nav__dropdown-wrapper.open .nav__dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav__dropdown-item {
+  display: block;
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--neutral-900);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.nav__dropdown-item:hover,
+.nav__dropdown-item.active {
+  background-color: var(--neutral-100);
+  color: var(--primary);
+}
+
+/* Nav dropdown — mobile */
+@media (max-width: 1024px) {
+  .nav__dropdown-wrapper {
+    width: 100%;
+  }
+
+  .nav__dropdown-trigger {
+    width: 100%;
+    justify-content: space-between;
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid var(--ui-border-muted);
+  }
+
+  /* Reset desktop absolute positioning */
+  .nav__dropdown {
+    position: static;
+    transform: none;
+    left: auto;
+    top: auto;
+    border: none;
+    border-radius: var(--radius-none);
+    box-shadow: var(--shadow-none);
+    background: transparent;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 1;
+    pointer-events: none;
+    transition: max-height var(--transition-smooth);
+  }
+
+  .nav__dropdown-wrapper.open .nav__dropdown {
+    max-height: 200px;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .nav__dropdown-item {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-base);
+    border-bottom: 1px solid var(--ui-border-muted);
+  }
+}

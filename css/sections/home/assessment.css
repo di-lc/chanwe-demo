@@ -1,0 +1,300 @@
+/* ============================================
+   Assessment
+   ============================================ */
+
+/* Section base */
+.assessment {
+  background-color: var(--neutral-100);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Watermark */
+.assessment__watermark {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: var(--z-base);
+  user-select: none;
+}
+
+@media (max-width: 1024px) {
+  .assessment__watermark {
+    right: 0;
+    width: min(280px, 52vw);
+  }
+}
+
+/* Inner container — flex gap matches tag→content rhythm (same as .section-tag margin elsewhere) */
+.assessment__inner {
+  position: relative;
+  z-index: var(--z-raised);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--cw-tag-to-title-gap);
+}
+
+.assessment__inner > .section-tag {
+  margin-bottom: 0;
+}
+
+/* 50 / 50 Split */
+.assessment__split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+  /* Same gap as Casos grid */
+  align-items: start;
+  /* Each column controls its own vertical flow */
+}
+
+/* LEFT */
+.assessment__left {
+  display: flex;
+  flex-direction: column;
+  padding-right: var(--space-2xl);
+}
+
+.assessment__title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.025em;
+  color: var(--neutral-900);
+  text-align: left;
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.assessment__lead {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  line-height: var(--leading-body);
+  color: var(--neutral-500);
+  text-align: left;
+  margin: 0 0 var(--space-xl) 0;
+}
+
+/* Benefits on one line, wide spacing between items */
+.assessment__features {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xl);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 1024px) {
+  .assessment__features {
+    flex-wrap: nowrap;
+    gap: var(--space-sm);
+    justify-content: flex-start;
+  }
+
+  .assessment__feature {
+    flex: 0 0 auto;
+  }
+
+  .assessment__feature span {
+    white-space: nowrap;
+    letter-spacing: 0.12em;
+  }
+}
+
+.assessment__feature {
+  display: flex;
+  align-items: center;
+}
+
+.assessment__feature span {
+  font-family: var(--font-sans);
+  font-size: var(--cw-overline-font-size);
+  font-weight: var(--cw-overline-font-weight);
+  letter-spacing: var(--cw-overline-letter-spacing);
+  text-transform: var(--cw-overline-text-transform);
+  font-style: normal;
+  line-height: var(--leading-normal);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--neutral-500);
+}
+
+/*  RIGHT */
+.assessment__right {
+  display: flex;
+  align-items: stretch;
+}
+
+.assessment__card {
+  background-color: var(--neutral-0);
+  border: 1px solid var(--ui-border-default);
+  border-radius: var(--radius);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: var(--z-raised);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Timeline Steps */
+.assessment__step {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.assessment__step--last {
+  margin-bottom: 0;
+}
+
+.assessment__step--last .assessment__step-body {
+  padding-bottom: 0;
+}
+
+.assessment__step-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.assessment__step-num {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-sm);
+  letter-spacing: normal;
+  color: var(--primary);
+  line-height: var(--leading-subtitle);
+  flex-shrink: 0;
+}
+
+.assessment__step-line {
+  flex: 1;
+  width: 1px;
+  background-color: var(--ui-border-default);
+  min-height: 24px;
+}
+
+.assessment__step-body {
+  padding-bottom: var(--space-2xs);
+}
+
+.assessment__step-title {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--text-base);
+  letter-spacing: normal;
+  color: var(--neutral-900);
+  line-height: var(--leading-body);
+  margin-bottom: var(--space-xs);
+}
+
+/* CTA inside the right card, below steps */
+.assessment__cta {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
+@media (min-width: 1025px) {
+  .assessment__card > .assessment__cta {
+    margin-top: var(--space-2xl);
+  }
+}
+
+/* Footer & Line  Pattern used in Concept/Final CTA */
+.assessment__footer {
+  margin-top: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.assessment__line {
+  width: 1px;
+  height: 40px;
+  background-color: var(--ui-border-default);
+  margin-bottom: var(--space-lg);
+}
+
+/*  Mobile (< 768px) */
+@media (max-width: 768px) {
+  .assessment__watermark {
+    width: 200px;
+    opacity: 0.02;
+  }
+
+  .assessment__inner {
+    padding: 0 var(--space-lg);
+  }
+
+  .assessment__split {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .assessment__left {
+    padding-right: 0;
+    align-items: center;
+    /* Center the left column contents */
+    text-align: center;
+  }
+
+  .assessment__title {
+    text-align: center;
+  }
+
+  .assessment__lead {
+    text-align: center;
+  }
+
+  .assessment__features {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xl);
+  }
+
+  .assessment__cta {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .assessment .assessment__cta {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .assessment__card > .assessment__cta {
+    margin-top: var(--space-xl);
+  }
+}

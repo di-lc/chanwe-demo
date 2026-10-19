@@ -1,0 +1,14 @@
+# Chanwe portfolio demo (GitHub Pages) — not the production site.
+# No sitemap is published with this package.
+
+User-agent: *
+Allow: /
+
+Disallow: /mi-espacio.html
+Disallow: /es/mi-espacio.html
+Disallow: /en/mi-espacio.html
+Disallow: /admin/
+Disallow: /portal/
+Disallow: /partials/
+Disallow: /data/
+Disallow: /docs/

@@ -1,0 +1,58 @@
+/* ============================================
+   Shared
+   ============================================ */
+
+/* Overline stack — colour/margins in component rules */
+.micro-text,
+.section-tag,
+.hero .hero__scroll-label,
+.footer__strategic-tag,
+.case-card__sector,
+.case-card__location,
+.detail-page__eyebrow,
+.concept__micro,
+.label {
+  font-family: var(--cw-overline-font-family);
+  font-size: var(--cw-overline-font-size);
+  font-weight: var(--cw-overline-font-weight);
+  letter-spacing: var(--cw-overline-letter-spacing);
+  text-transform: var(--cw-overline-text-transform);
+  font-style: normal;
+  line-height: var(--leading-normal);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Login + assessment card shell */
+.login-card,
+.assessment-card {
+  background-color: var(--neutral-0);
+  border: 1px solid var(--ui-border-default);
+  border-radius: var(--radius);
+  padding: var(--card-interior-padding);
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: var(--z-ui);
+  box-sizing: border-box;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login-card,
+  .assessment-card {
+    padding: var(--card-interior-padding);
+  }
+}
+
+@media (max-width: 768px) {
+  .login-card,
+  .assessment-card {
+    padding: var(--card-interior-padding-mobile);
+  }
+}
+
+.login-card {
+  max-width: var(--card-form-max-width);
+}
+

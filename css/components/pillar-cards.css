@@ -1,0 +1,110 @@
+/* ============================================
+   Pillar feature cards
+   Shared: pulse product page + eval landing
+   ============================================ */
+
+.cw-pulse__card,
+.cw-eval-landing__pillar-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.cw-pulse__card-title,
+.cw-eval-landing__card-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: normal;
+  line-height: var(--leading-subtitle);
+  color: var(--neutral-900);
+  transition: color var(--transition-base);
+}
+
+.cw-pulse__card-text,
+.cw-eval-landing__card-text {
+  margin: var(--space-sm) 0 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+  color: var(--neutral-500);
+}
+
+.cw-pulse__card:hover .cw-pulse__card-title,
+.cw-pulse__card:focus-within .cw-pulse__card-title {
+  color: var(--neutral-900);
+}
+
+/* Watermark scale — losango/pill height ÷ viewBox height (measured from SVG paths).
+   bg-height % = --cw-pillar-pill-size ÷ unit-ratio → equal pill size across glyphs. */
+.cw-pulse__card::after,
+.cw-eval-landing__pillar-card::after {
+  --cw-pillar-pill-size: 20%;
+  --cw-pillar-wm-unit-arrow: 0.3234;   /* 62.41 ÷ 193 — diagonal bar motif */
+  --cw-pillar-wm-unit-diamond: 0.2006; /* 49.55 ÷ 247 — pill losango */
+  --cw-pillar-wm-unit-checker: 0.3355; /* 49.66 ÷ 148 — same pill, shorter viewBox */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: var(--cw-pillar-wm-width, auto) var(--cw-pillar-wm-height, 62%);
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: var(--z-raised);
+}
+
+.cw-pulse__card > *,
+.cw-eval-landing__pillar-card > * {
+  position: relative;
+  z-index: var(--z-local);
+}
+
+/* Pulse product modifiers — height from losango unit ratio */
+.cw-pulse__card--econ::after {
+  background-image: url("../../assets/01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg");
+  --cw-pillar-wm-width: auto;
+  --cw-pillar-wm-height: calc(var(--cw-pillar-pill-size) / var(--cw-pillar-wm-unit-arrow));
+}
+
+.cw-pulse__card--gestion::after {
+  background-image: url("../../assets/01-icons/chanwe-icons/chanwe-glyph-diamond-red.svg");
+  --cw-pillar-wm-width: auto;
+  --cw-pillar-wm-height: calc(var(--cw-pillar-pill-size) / var(--cw-pillar-wm-unit-diamond));
+}
+
+.cw-pulse__card--competitiva::after {
+  background-image: url("../../assets/01-icons/chanwe-icons/chanwe-glyph-checker-red.svg");
+  --cw-pillar-wm-width: auto;
+  --cw-pillar-wm-height: calc(var(--cw-pillar-pill-size) / var(--cw-pillar-wm-unit-checker));
+}
+
+/* Eval landing modifiers — capa 1 trama, capa 2 diamante, capa 3 flecha */
+.cw-eval-landing__pillar-card--scan::after {
+  background-image: url("../../assets/01-icons/chanwe-icons/chanwe-glyph-checker-red.svg");
+  --cw-pillar-wm-width: auto;
+  --cw-pillar-wm-height: calc(var(--cw-pillar-pill-size) / var(--cw-pillar-wm-unit-checker));
+}
+
+.cw-eval-landing__pillar-card--dive::after {
+  background-image: url("../../assets/01-icons/chanwe-icons/chanwe-glyph-diamond-red.svg");
+  --cw-pillar-wm-width: auto;
+  --cw-pillar-wm-height: calc(var(--cw-pillar-pill-size) / var(--cw-pillar-wm-unit-diamond));
+}
+
+.cw-eval-landing__pillar-card--pulse::after {
+  background-image: url("../../assets/01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg");
+  --cw-pillar-wm-width: auto;
+  --cw-pillar-wm-height: calc(var(--cw-pillar-pill-size) / var(--cw-pillar-wm-unit-arrow));
+}
+
+/* Pillar watermarks — tablet/mobile (slightly smaller losango target) */
+@media (max-width: 1024px) {
+  .cw-pulse__card::after,
+  .cw-eval-landing__pillar-card::after {
+    --cw-pillar-pill-size: 18%;
+  }
+}

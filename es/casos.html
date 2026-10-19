@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required head -->
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Éxito | Chanwe - Consultoría Estratégica</title>
+    <meta name="description"
+        content="Casos de impacto Chanwe: estrategia, datos y tecnología aplicados a empresas en crecimiento.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="/es/casos.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/es/casos.html">
+    <meta property="og:title" content="Casos de Éxito | Chanwe - Consultoría Estratégica">
+    <meta property="og:description"
+        content="Casos de impacto Chanwe: estrategia, datos y tecnología aplicados a empresas en crecimiento.">
+    <meta property="og:image" content="/assets/03-images/og-image/og-image.png">
+    <meta property="og:locale" content="es">
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="es" href="/es/casos.html">
+    <link rel="alternate" hreflang="en" href="/en/casos.html">
+    <link rel="alternate" hreflang="x-default" href="/es/casos.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap">
+
+
+    <link rel="stylesheet" href="../css/styles.css?v=20260928a">
+    <link rel="stylesheet" href="../css/interior.css?v=20260728">
+    <link rel="stylesheet" href="../css/perspectivas.css">
+    <link rel="stylesheet" href="../css/casos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="../js/i18n.js?v=20261019-en" defer></script>
+    <script src="../js/listing-a11y.js" defer></script>
+    <script src="../js/components.js?v=20261019-2" defer></script>
+    <script src="../js/main.js?v=20260828a" defer></script>
+    <script src="../js/carousel.js" defer></script>
+    <script src="../js/casos.js" defer></script>
+</head>
+
+<body class="page-casos" itemscope itemtype="https://schema.org/WebPage">
+    <div data-component="nav"></div>
+
+    <main id="main-content" role="main">
+        <section class="cw-casos" id="casos-listagem" aria-label="Todos los casos de impacto">
+
+            <!-- Hero -->
+            <header class="cw-perspectivas__hero">
+                <div class="container cw-perspectivas__container">
+                    <div class="section-tag">IMPACTO</div>
+                    <h1 class="h2 page-title cw-perspectivas__title">Proyectos reales. Resultados concretos.</h1>
+                    <p class="body-text page-lead cw-perspectivas__lead">
+                        Nuestra experiencia consolidada en distintas industrias nos permite reconocer patrones y aplicar
+                        estrategia adaptada a cada contexto.
+                    </p>
+                </div>
+            </header>
+
+            <!-- Two-column: grid + sidebar -->
+            <section class="cw-casos__section cw-casos__section--base" aria-label="Listado">
+                <div class="cw-casos__layout">
+
+                    <!-- Grid column -->
+                    <div class="cw-casos__main">
+                        <div class="casos__listing" id="container-casos">
+                            <!-- cards rendered by js/casos.js -->
+                        </div>
+                        <nav class="cw-casos__pagination" id="casos-pagination" aria-label="Paginación" hidden>
+                        </nav>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="cw-perspectivas__sidebar" id="casos-sidebar" aria-label="Filtros y búsqueda">
+                        <div class="cw-sidebar__inner">
+
+                            <!-- Search -->
+                            <div class="cw-sidebar__block">
+                                <label class="cw-sidebar__title" for="casos-search">Buscar</label>
+                                <div class="cw-perspectivas__search" id="casos-search-wrap">
+                                    <input class="form-input cw-perspectivas__search-input" id="casos-search"
+                                        type="text" inputmode="search" autocomplete="off"
+                                        placeholder="Buscar casos">
+                                    <button type="button" class="cw-perspectivas__search-clear" id="casos-search-clear"
+                                        aria-label="Limpiar búsqueda" hidden>
+                                        <img src="../assets/01-icons/general-icons/general-chanwe-icon-close.svg" alt=""
+                                            aria-hidden="true">
+                                    </button>
+                                    <img src="../assets/01-icons/general-icons/general-chanwe-icon-search.svg" alt=""
+                                        class="cw-perspectivas__search-icon" aria-hidden="true">
+                                </div>
+                            </div>
+
+                            <!-- Type -->
+                            <div class="cw-sidebar__block">
+                                <p class="cw-sidebar__title">Tipo</p>
+                                <ul class="cw-sidebar__list" id="sidebar-casos-categoria" role="list"></ul>
+                            </div>
+
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+        </section>
+    </main>
+    <div data-component="footer"></div>
+</body>
+
+</html>

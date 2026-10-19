@@ -1,0 +1,244 @@
+/* ============================================
+   Listing carousel
+   Shared: informes, casos (2+ items per category)
+   ============================================ */
+
+/* Desktop — grid category; carousel when --carousel */
+@media (min-width: 1025px) {
+  .cw-listing-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--listing-card-col-width));
+    gap: var(--listing-card-gap);
+    justify-content: start;
+  }
+
+  .cw-listing-category .casos__section-header,
+  .cw-listing-category .informes__section-header {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 100%;
+    justify-self: start;
+  }
+
+  /* Static grid — flatten carousel shell */
+  .cw-listing-category:not(.cw-listing-category--carousel) .cw-carousel,
+  .cw-listing-category:not(.cw-listing-category--carousel) .cw-carousel__visual,
+  .cw-listing-category:not(.cw-listing-category--carousel) .cw-carousel__viewport,
+  .cw-listing-category:not(.cw-listing-category--carousel) .cw-carousel__track {
+    display: contents;
+  }
+
+  .cw-listing-category:not(.cw-listing-category--carousel) .cw-carousel__nav {
+    display: none;
+  }
+
+  .cw-listing-category:not(.cw-listing-category--carousel) .cw-carousel__slide {
+    width: 100%;
+  }
+
+  /* Carousel — 2 visible */
+  .cw-listing-category--carousel {
+    display: block;
+  }
+
+  .cw-listing-category--carousel .casos__section-header,
+  .cw-listing-category--carousel .informes__section-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .cw-listing-category--carousel .cw-carousel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .cw-listing-category--carousel .cw-carousel__visual {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: stretch;
+    column-gap: var(--space-md);
+    width: 100%;
+    min-width: 0;
+  }
+
+  .cw-listing-category--carousel .cw-carousel__nav-btn--prev,
+  .cw-listing-category--carousel .cw-carousel__nav-btn--next {
+    align-self: center;
+  }
+
+  .cw-listing-category--carousel .cw-carousel__viewport {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .cw-listing-category--carousel .cw-carousel__track {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+    gap: var(--listing-card-gap);
+  }
+
+  .cw-listing-category--carousel .cw-carousel__slide {
+    flex: 0 0 var(--listing-card-carousel-width);
+    width: var(--listing-card-carousel-width);
+    max-width: var(--listing-card-carousel-width);
+    min-width: var(--listing-card-carousel-width);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    align-self: stretch;
+  }
+
+  .cw-listing-category--carousel .cw-carousel__nav {
+    display: contents;
+  }
+
+  .cw-listing-category--carousel .cw-carousel__nav-btn--prev {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .cw-listing-category--carousel .cw-carousel__nav-btn--next {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .cw-listing-category--carousel .cw-carousel__nav-btn {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    color: var(--neutral-500);
+    transition:
+      color var(--transition-base),
+      opacity var(--transition-base),
+      transform var(--transition-base);
+  }
+
+  .cw-listing-category--carousel .cw-carousel__nav-btn svg {
+    width: 44px;
+    height: 44px;
+    display: block;
+  }
+
+  .cw-listing-category--carousel .cw-carousel__nav-btn:hover {
+    color: var(--primary);
+    transform: scale(1.12);
+  }
+
+  .cw-listing-category--carousel .cw-carousel__nav-btn[style*="visibility: hidden"],
+  .cw-listing-category--carousel .cw-carousel__nav-btn[style*="visibility:hidden"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Mobile — 1 card per view */
+@media (max-width: 1024px) {
+  .cw-carousel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .cw-carousel__visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    align-items: center;
+  }
+
+  .cw-carousel__viewport {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .cw-carousel__track {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .cw-carousel__slide {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cw-carousel__nav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-lg);
+    width: 100%;
+    margin-top: var(--space-carousel-nav-gap);
+    margin-bottom: 0;
+    padding-inline: 0;
+    pointer-events: none;
+    z-index: var(--z-local);
+  }
+
+  .cw-carousel__nav-btn {
+    background: transparent;
+    border: none;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    color: var(--neutral-500);
+    transition:
+      color var(--transition-base),
+      opacity var(--transition-base),
+      transform var(--transition-base);
+  }
+
+  .cw-carousel__nav-btn svg {
+    width: 54px;
+    height: 54px;
+    display: block;
+  }
+
+  .cw-carousel__nav-btn:hover {
+    color: var(--primary);
+    transform: scale(1.2);
+  }
+
+  .cw-carousel__nav-btn[style*="visibility: hidden"],
+  .cw-carousel__nav-btn[style*="visibility:hidden"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

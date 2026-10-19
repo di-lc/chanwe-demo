@@ -1,0 +1,131 @@
+/* ============================================
+   Viewport accent (≤1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  /* Problem: border + icon (no lift) */
+  .problem .problem-card.cw-in-view {
+    transform: none;
+    box-shadow: var(--shadow-none);
+    border-color: var(--primary);
+  }
+
+  .problem .problem-card.cw-in-view .problem-card__icon {
+    background-color: var(--primary);
+  }
+
+  .problem .problem-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-none);
+    border-color: var(--ui-border-default);
+  }
+
+  .problem .problem-card:hover .problem-card__icon {
+    background-color: var(--neutral-500);
+  }
+
+  /* Concept: red title + icon */
+  .concept__topics .card-dark.cw-in-view .concept-card__title {
+    color: var(--primary);
+  }
+
+  .concept__topics .card-dark.cw-in-view .concept-card__icon {
+    background-color: var(--primary);
+  }
+
+  .concept__topics .card-dark:hover .concept-card__title {
+    color: var(--neutral-0);
+  }
+
+  .concept__topics .card-dark:hover .concept-card__icon {
+    background-color: var(--neutral-0);
+  }
+
+  /* Services: border + icon on visible slide (scroll + arrows) */
+  .services .services__slide.cw-in-view {
+    border-color: var(--primary);
+  }
+
+  .services .services__slide.cw-in-view .service-card__icon {
+    filter: var(--filter-ui-icon-active);
+  }
+
+  .services .services__slide:not(.cw-in-view) .service-card__icon {
+    filter: var(--filter-ui-icon-muted);
+  }
+
+  .services .card-default.services__slide:hover {
+    border-color: var(--ui-border-default);
+  }
+
+  .services .services__slide:hover .service-card__icon {
+    filter: var(--filter-ui-icon-muted);
+  }
+}
+
+/* Home cases preview — mobile/tablet (not casos listing) */
+@media (max-width: 1024px) {
+  .cases__grid {
+    grid-template-columns: 1fr;
+    padding: 0 var(--space-lg);
+    max-width: 600px;
+  }
+
+  .cases__grid .case-card {
+    height: auto;
+    background-color: var(--neutral-0);
+    cursor: default;
+    margin-bottom: var(--space-lg);
+    overflow: hidden;
+  }
+
+  .cases__grid .case-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .cases__grid .case-card__img-container {
+    position: relative;
+    height: 260px;
+    width: 100%;
+  }
+
+  .cases__grid :is(.case-card:hover, .case-card:focus-visible) .case-card__img {
+    transform: none;
+    filter: var(--filter-image-muted);
+  }
+
+  .cases__grid .case-card__footer {
+    position: relative;
+    height: auto;
+    background-color: var(--neutral-0);
+    padding: var(--space-xl) var(--space-md) var(--space-lg);
+  }
+
+  .cases__grid .case-card__content {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .cases__grid .case-card__img {
+    filter: var(--filter-image-muted);
+    opacity: 0.85;
+    object-position: center 15%;
+  }
+
+  .cases__grid .case-card[data-slug="estaciones-servicio"] .case-card__img {
+    object-position: center 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cases__grid .case-card__img-container {
+    height: 240px;
+  }
+
+  .cases__grid .case-card[data-slug="retail-indumentaria"] .case-card__img {
+    object-position: center 15%;
+  }
+
+  .cases__grid .case-card[data-slug="estaciones-servicio"] .case-card__img {
+    object-position: center 55%;
+  }
+}

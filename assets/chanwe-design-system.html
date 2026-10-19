@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chanwe - Design System</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css?v=20260928a">
+    <link rel="stylesheet" href="../css/components/carousel.css">
+
+    <!-- External CSS Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Satoshi', 'sans-serif'],
+                        display: ['Archivo', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: 'var(--primary)',
+                            hover: 'var(--primary-hover)',
+                            active: 'var(--primary-active)',
+                            light: 'var(--primary-light)',
+                            subtle: 'var(--primary-subtle)'
+                        },
+                        neutral: {
+                            900: 'var(--neutral-900)',
+                            500: 'var(--neutral-500)',
+                            400: 'var(--neutral-400)',
+                            300: 'var(--neutral-300)',
+                            200: 'var(--neutral-200)',
+                            100: 'var(--neutral-100)',
+                            0: 'var(--neutral-0)'
+                        },
+                        status: {
+                            success: 'var(--status-success)',
+                            successBg: 'var(--status-success-bg)',
+                            error: 'var(--status-error)',
+                            errorBg: 'var(--status-error-bg)',
+                            warning: 'var(--status-warning)',
+                            warningBg: 'var(--status-warning-bg)',
+                            info: 'var(--status-info)',
+                            infoBg: 'var(--status-info-bg)'
+                        },
+                        inverse: {
+                            DEFAULT: 'var(--inverse-bg)',
+                            surface: 'var(--inverse-surface)',
+                            border: 'var(--inverse-border)',
+                            borderStrong: 'var(--inverse-border-strong)'
+                        }
+                    },
+                    transitionTimingFunction: {
+                        'ease-tactile': 'ease-in-out',
+                    },
+                    transitionDuration: {
+                        '150': '150ms',
+                    },
+                    borderRadius: {
+                        none: 'var(--radius-none)',
+                        sm: 'var(--radius)',
+                        DEFAULT: 'var(--radius)',
+                        md: 'var(--radius)',
+                        lg: 'var(--radius)',
+                        xl: 'var(--radius)',
+                        '2xl': 'var(--radius)',
+                        '3xl': 'var(--radius)',
+                        full: 'var(--radius-full)',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* BASE STYLES & OVERRIDES */
+        body {
+            font-family: 'Satoshi', sans-serif;
+            background-color: var(--neutral-100);
+            color: var(--neutral-900);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .font-display {
+            font-family: 'Archivo', sans-serif;
+            color: var(--neutral-900);
+            /* Keep display headings dark */
+        }
+
+        p,
+        .body-text {
+            color: var(--neutral-500);
+            /* Body text colour: Neutral 500 */
+        }
+
+        /* REVEAL ANIMATIONS */
+        @keyframes animationIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.98);
+                filter: blur(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation-play-state: paused;
+        }
+
+        .animate-on-scroll.animate {
+            animation: animationIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-play-state: running;
+        }
+
+        /* TEXT MASK REVEAL */
+        .text-reveal-wrapper {
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        .text-reveal-content {
+            transform: translateY(110%);
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
+            display: block;
+        }
+
+        .reveal-active .text-reveal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* DELAYS */
+        .delay-100 {
+            transition-delay: 0.1s;
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            transition-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            transition-delay: 0.4s;
+            animation-delay: 0.4s;
+        }
+
+        .delay-500 {
+            transition-delay: 0.5s;
+            animation-delay: 0.5s;
+        }
+
+        .delay-700 {
+            transition-delay: 0.7s;
+            animation-delay: 0.7s;
+        }
+
+        /* BACKGROUNDS & NOISE */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .bg-grid {
+            background-size: 32px 32px;
+            background-image:
+                linear-gradient(to right, var(--ui-elevation-3) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--ui-elevation-3) 1px, transparent 1px);
+        }
+
+        .bg-grid-dark {
+            background-size: 32px 32px;
+            background-image:
+                linear-gradient(to right, var(--ui-grid-line-inverse) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--ui-grid-line-inverse) 1px, transparent 1px);
+        }
+
+        /* HERO GRADIENT SHIMMER */
+        @keyframes subtle-shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* PREMIUM IMAGE GRAYSCALE */
+        .media-premium {
+            background-color: var(--ui-surface-muted);
+            /* Base layer for silver blend */
+            overflow: hidden;
+        }
+
+        .media-premium img {
+            filter: grayscale(100%) brightness(1.0);
+            opacity: 0.85;
+            transition: filter 0.8s ease, opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .media-premium:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* LASER SCROLL DIVIDER / ARROW */
+        .divider-laser {
+            width: 1px;
+            height: 40px;
+            background-color: var(--ui-border-default);
+            /* Master trace opacity: 15% */
+        }
+
+        .micro-text {
+            font-size: var(--text-xs);
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--neutral-500);
+        }
+
+        /* Iconography — project assets (01-icons/) */
+        .ds-icon-section {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .ds-icon-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .ds-icon-section__head {
+            margin-bottom: var(--space-lg);
+        }
+
+        .ds-icon-section__title {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            color: var(--neutral-900);
+            margin-bottom: var(--space-xs);
+        }
+
+        .ds-icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .ds-icon-cell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            min-height: 112px;
+            padding: var(--space-md) var(--space-xs);
+            background-color: var(--neutral-100);
+            border: 1px solid var(--ui-border-muted);
+            border-radius: var(--radius);
+            transition: background-color var(--transition-fast), border-color var(--transition-fast);
+        }
+
+        .ds-icon-cell:hover {
+            background-color: var(--neutral-0);
+            border-color: var(--ui-border-default);
+        }
+
+        .ds-icon-cell--inverse {
+            background-color: var(--inverse-bg);
+            border-color: var(--ui-on-inverse-border);
+        }
+
+        .ds-icon-cell--inverse:hover {
+            background-color: var(--neutral-900);
+            border-color: var(--ui-on-inverse-border-hover);
+        }
+
+        .ds-icon-cell--inverse .ds-icon-cell__label {
+            color: var(--neutral-400);
+        }
+
+        .ds-icon-cell__img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            flex-shrink: 0;
+            color: var(--neutral-900);
+        }
+
+        .ds-icon-cell__img--ui {
+            filter: var(--filter-ui-icon-muted);
+            transition: filter var(--transition-base);
+        }
+
+        .ds-icon-cell:hover .ds-icon-cell__img--ui {
+            filter: var(--filter-ui-icon-active);
+        }
+
+        .ds-icon-cell__img--brand {
+            width: auto;
+            max-width: 48px;
+            max-height: 40px;
+            filter: none;
+        }
+
+        .ds-icon-cell__label {
+            font-family: var(--font-sans);
+            font-size: 9px;
+            line-height: var(--leading-label);
+            color: var(--neutral-500);
+            text-align: center;
+            word-break: break-all;
+            width: 100%;
+        }
+
+        /* Design-system layout — token reference panels */
+        .ds-token-section {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .ds-token-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .ds-token-section__title {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            color: var(--neutral-900);
+            margin-bottom: var(--space-md);
+        }
+
+        .ds-token-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: var(--space-sm);
+        }
+
+        .ds-token-swatch {
+            border: 1px solid var(--ui-border-default);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--neutral-0);
+        }
+
+        .ds-token-swatch__chip {
+            height: 48px;
+        }
+
+        .ds-token-swatch__meta {
+            padding: var(--space-xs) var(--space-sm);
+            font-family: var(--font-sans);
+            font-size: var(--text-xs);
+            line-height: var(--leading-label);
+            color: var(--neutral-500);
+        }
+
+        .ds-token-swatch__meta strong {
+            display: block;
+            color: var(--neutral-900);
+            font-weight: var(--font-weight-medium);
+            font-family: ui-monospace, monospace;
+            font-size: 10px;
+        }
+
+        .ds-token-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--font-sans);
+            font-size: var(--text-sm);
+        }
+
+        .ds-token-table th,
+        .ds-token-table td {
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: 1px solid var(--ui-border-muted);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .ds-token-table th {
+            font-weight: var(--font-weight-medium);
+            color: var(--neutral-900);
+            background: var(--neutral-100);
+        }
+
+        .ds-token-table td:first-child {
+            font-family: ui-monospace, monospace;
+            font-size: var(--text-xs);
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        .ds-token-table td:last-child {
+            color: var(--neutral-500);
+        }
+
+        .ds-case-card-demo {
+            max-width: 360px;
+        }
+
+        .ds-case-card-demo .case-card {
+            height: 420px;
+        }
+
+        .ds-focus-demo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .ds-focus-demo__btn {
+            min-width: 140px;
+        }
+
+        .ds-carousel-nav-demo {
+            display: flex;
+            gap: var(--space-carousel-nav-gap);
+            align-items: center;
+        }
+
+    </style>
+</head>
+
+<body class="selection:bg-primary-subtle selection:text-primary">
+
+    <div class="noise"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-[100] h-[64px] bg-[color:var(--ui-backdrop-medium)] backdrop-blur-[8px] border-b border-[color:var(--ui-border-frost)] transition-all duration-150 flex items-center justify-between px-6 md:px-20" id="main-nav">
+        <div class="flex items-center gap-3">
+            <img src="02-logo/chanwe-logo-red.svg" alt="Chanwe Logo" class="h-[21px]">
+        </div>
+        <div class="hidden md:flex gap-8">
+            <a href="#typography" class="font-sans text-[length:var(--text-md)] text-neutral-900 hover:text-primary transition-colors">Typography</a>
+            <a href="#colors" class="font-sans text-[length:var(--text-md)] text-neutral-900 hover:text-primary transition-colors">Colors</a>
+            <a href="#tokens" class="font-sans text-[length:var(--text-md)] text-neutral-900 hover:text-primary transition-colors">Tokens</a>
+            <a href="#components" class="font-sans text-[length:var(--text-md)] text-neutral-900 hover:text-primary transition-colors">Components</a>
+            <a href="#assets" class="font-sans text-[length:var(--text-md)] text-neutral-900 hover:text-primary transition-colors">Assets</a>
+        </div>
+        <button class="btn btn-primary" style="height: 36px; padding: 0 16px;">Request Access</button>
+    </nav>
+
+    <!-- CONTAINER MAX-WIDTH -->
+    <div class="w-full relative">
+
+        <!-- HERO SECTION -->
+        <section class="relative min-h-[100vh] w-full flex items-center justify-center overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0 pointer-events-none">
+                <img src="03-images/webp/chanwe-foto-3.webp" alt="Hero Background" class="w-full h-full object-cover parallax-bg">
+            </div>
+
+            <div class="relative z-10 w-full max-w-[1280px] px-[24px] md:px-[80px] pt-20">
+                <div class="flex flex-col items-center text-center">
+                    <span class="tag tag-default mb-6 animate-on-scroll delay-100">
+                        <span class="w-1.5 h-1.5 bg-primary rounded-full mr-2 animate-pulse"></span>
+                        Version 2.0
+                    </span>
+
+                    <h1 class="font-display font-semibold text-[length:var(--text-hero)] leading-[1.2] md:leading-[1.1] tracking-[-0.01em] md:tracking-[-0.02em] text-neutral-900 mb-6 flex flex-col items-center max-w-[800px]">
+                        <span class="text-reveal-wrapper"><span class="text-reveal-content delay-200">The Ultimate</span></span>
+                        <span class="text-reveal-wrapper"><span class="text-reveal-content delay-300">Design <span class="text-primary">Architecture.</span></span></span>
+                    </h1>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="max-w-[1280px] mx-auto overflow-hidden bg-grid border-x border-neutral-200 shadow-[0_0_60px_var(--ui-elevation-1)] relative z-20 bg-neutral-100">
+            <!-- TYPOGRAPHY SECTION -->
+            <section id="typography" class="py-[80px] px-[24px] md:px-[80px] border-b border-neutral-200 bg-neutral-0">
+                <div class="mb-16 animate-on-scroll">
+                    <span class="font-sans font-medium text-[length:var(--text-base)] text-neutral-500 mb-2 block">01 / Foundation</span>
+                    <h2 class="font-display font-normal text-[length:clamp(48px,6vw,56px)] leading-[1.1] tracking-[-0.01em] text-neutral-900">Typography</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-[24px]">
+                    <div class="col-span-1 md:col-span-6 animate-on-scroll delay-100 pt-8 border-t border-neutral-200">
+                        <span class="text-xs font-sans text-neutral-500 mb-6 block uppercase tracking-widest">Display & Headers</span>
+                        <div class="mb-8">
+                            <span class="font-display text-[length:clamp(56px,12vw,80px)] leading-[1] text-neutral-900 mb-2 block">Aa</span>
+                            <span class="font-display text-2xl text-neutral-900">Archivo</span>
+                            <p class="font-sans text-[length:var(--text-base)] text-neutral-500 mt-2">Technical authority. Sentence Case. Used in H1, H2, H3 and Actions (Buttons).</p>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1 md:col-span-6 animate-on-scroll delay-200 pt-8 border-t border-neutral-200">
+                        <span class="text-xs font-sans text-neutral-500 mb-6 block uppercase tracking-widest">Content & Body</span>
+                        <div class="mb-8">
+                            <span class="font-sans text-[length:clamp(56px,12vw,80px)] leading-[1] text-neutral-900 mb-2 block">Aa</span>
+                            <span class="font-sans text-2xl text-neutral-900">Satoshi</span>
+                            <p class="font-sans text-[length:var(--text-base)] text-neutral-500 mt-2">Prolonged reading, visual comfort. Used in Body, Subtitles, and Captions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Type Scale -->
+                <div class="mt-16 flex flex-col border-t border-neutral-200">
+                    <!-- H1 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 py-8 border-b border-neutral-200 items-baseline group hover:bg-neutral-100 transition-colors animate-on-scroll cursor-default">
+                        <div class="col-span-1 md:col-span-2 text-sm font-sans text-neutral-500 mb-2 md:mb-0">H1 / --text-hero → clamp</div>
+                        <div class="col-span-1 md:col-span-10 flex flex-col group-hover:translate-x-2 transition-transform duration-300">
+                            <h1 class="font-display font-semibold text-[length:var(--text-hero)] leading-[var(--leading-condensed)] tracking-[-0.02em] text-neutral-900 m-0">Impact Title</h1>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-12 py-8 border-b border-neutral-200 items-baseline group hover:bg-neutral-100 transition-colors animate-on-scroll cursor-default">
+                        <div class="col-span-1 md:col-span-2 text-sm font-sans text-neutral-500 mb-2 md:mb-0">H2 / --text-3xl</div>
+                        <div class="col-span-1 md:col-span-10 flex flex-col group-hover:translate-x-2 transition-transform duration-300">
+                            <h2 class="font-display font-normal text-[length:var(--text-3xl)] leading-[var(--leading-heading)] tracking-[-0.025em] text-neutral-900 m-0">Section Titles</h2>
+                        </div>
+                    </div>
+                    <!-- Subtitle -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 py-8 border-b border-neutral-200 items-baseline group hover:bg-neutral-100 transition-colors animate-on-scroll cursor-default">
+                        <div class="col-span-1 md:col-span-2 text-sm font-sans text-neutral-500 mb-2 md:mb-0">Subtitle / clamp → --text-xl</div>
+                        <div class="col-span-1 md:col-span-10 flex flex-col group-hover:translate-x-2 transition-transform duration-300">
+                            <p class="subtitle font-sans font-normal leading-[var(--leading-body)] text-neutral-500 m-0 max-w-[65ch]">Introductory text immediately below H1 or H2.</p>
+                        </div>
+                    </div>
+                    <!-- Body -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 py-8 border-b border-neutral-200 items-baseline group hover:bg-neutral-100 transition-colors animate-on-scroll cursor-default">
+                        <div class="col-span-1 md:col-span-2 text-sm font-sans text-neutral-500 mb-2 md:mb-0">Body / --text-base (16px)</div>
+                        <div class="col-span-1 md:col-span-10 flex flex-col">
+                            <p class="body-text font-sans font-normal leading-[var(--leading-body)] m-0 max-w-[65ch]">Standard body text (--text-base). Lead variant uses --text-lg (22px). A CHANWE organizes your strategic growth.</p>
+                        </div>
+                    </div>
+                    <!-- Button Text -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 py-8 items-baseline group hover:bg-neutral-100 transition-colors animate-on-scroll cursor-default">
+                        <div class="col-span-1 md:col-span-2 text-sm font-sans text-neutral-500 mb-2 md:mb-0">Action / --text-sm (13px)</div>
+                        <div class="col-span-1 md:col-span-10 flex flex-col">
+                            <span class="font-display font-extralight text-[length:var(--text-sm)] leading-[var(--leading-none)] text-primary uppercase tracking-[0.12em]">CTA Label</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COLORS SECTION -->
+            <section id="colors" class="py-[80px] border-b border-neutral-200 bg-neutral-100 relative">
+                <!-- Decorative element -->
+                <div class="absolute right-0 top-[10%] w-[300px] h-[300px] bg-primary-subtle rounded-full blur-[100px] opacity-40 pointer-events-none"></div>
+
+                <div class="px-[24px] md:px-[80px] mb-16 animate-on-scroll">
+                    <span class="font-sans font-medium text-[length:var(--text-base)] text-neutral-500 mb-2 block">02 / Foundation</span>
+                    <h2 class="font-display font-normal text-[length:clamp(48px,6vw,56px)] leading-[1.1] tracking-[-0.01em] text-neutral-900">Color System</h2>
+                </div>
+
+                <div class="px-[24px] md:px-[80px] grid grid-cols-1 md:grid-cols-12 gap-[24px]">
+
+                    <!-- Primary Brand -->
+                    <div class="col-span-1 md:col-span-4 animate-on-scroll delay-100">
+                        <h3 class="font-display text-[length:var(--text-xl)] leading-[1.2] tracking-[-0.02em] text-neutral-900 mb-6">Action & Intention</h3>
+                        <div class="rounded-lg overflow-hidden border border-neutral-200 shadow-sm flex flex-col hover:scale-[1.02] transition-transform duration-300">
+                            <div class="h-32 bg-primary flex items-end p-4">
+                                <span class="font-display font-bold text-white uppercase text-sm tracking-wider">Primary</span>
+                            </div>
+                            <div class="bg-neutral-0 p-4 space-y-2">
+                                <div class="flex justify-between items-center text-sm font-sans text-neutral-500"><span class="font-medium text-neutral-900">Hex</span> #fd3810</div>
+                                <div class="flex justify-between items-center text-sm font-sans text-neutral-500"><span class="font-medium text-neutral-900">Hover</span> #E94B2B</div>
+                                <div class="flex justify-between items-center text-sm font-sans text-neutral-500"><span class="font-medium text-neutral-900">Role</span> Main CTAs</div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-2 mt-4">
+                            <div class="h-16 bg-primary-hover rounded-lg border border-neutral-200 group relative">
+                                <div class="absolute inset-0 bg-neutral-900/90 text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-xs font-mono rounded-lg">#e94b2b</div>
+                            </div>
+                            <div class="h-16 bg-primary-active rounded-lg border border-neutral-200 group relative">
+                                <div class="absolute inset-0 bg-neutral-900/90 text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-xs font-mono rounded-lg">#d64624</div>
+                            </div>
+                            <div class="h-16 bg-primary-subtle rounded-lg border border-neutral-200 group relative">
+                                <div class="absolute inset-0 bg-neutral-900/90 text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-xs font-mono rounded-lg">#f6d4c7</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Neutrals -->
+                    <div class="col-span-1 md:col-span-8 animate-on-scroll delay-200">
+                        <h3 class="font-display text-[length:var(--text-xl)] leading-[1.2] tracking-[-0.02em] text-neutral-900 mb-6">Neutral System</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-6 h-auto rounded-lg overflow-hidden border border-neutral-200 shadow-sm">
+                            <div class="h-48 bg-neutral-900 p-4 flex flex-col justify-between hover:scale-[1.02] transition-transform z-10 hover:z-20 origin-left">
+                                <span class="text-white font-sans text-sm">Text Primary</span>
+                                <span class="text-neutral-400 font-mono text-xs">#272727</span>
+                            </div>
+                            <div class="h-48 bg-neutral-500 p-4 flex flex-col justify-between hover:scale-[1.02] transition-transform z-10 hover:z-20">
+                                <span class="text-white font-sans text-sm">Text Second.</span>
+                                <span class="text-neutral-200 font-mono text-xs">#6E6E6E</span>
+                            </div>
+                            <div class="h-48 bg-neutral-400 p-4 flex flex-col justify-between hover:scale-[1.02] transition-transform z-10 hover:z-20">
+                                <span class="text-white font-sans text-sm">Metadata</span>
+                                <span class="text-neutral-200 font-mono text-xs">#929292</span>
+                            </div>
+                            <div class="h-48 bg-neutral-200 p-4 flex flex-col justify-between hover:scale-[1.02] transition-transform z-10 hover:z-20">
+                                <span class="text-neutral-900 font-sans text-sm">Border Subtle</span>
+                                <span class="text-neutral-500 font-mono text-xs">#CACACA</span>
+                            </div>
+                            <div class="h-48 bg-neutral-100 p-4 flex flex-col justify-between hover:scale-[1.02] transition-transform z-10 hover:z-20 origin-right border-r border-neutral-200">
+                                <span class="text-neutral-900 font-sans text-sm">Page BG</span>
+                                <span class="text-neutral-500 font-mono text-xs">#f7f7f7</span>
+                            </div>
+                            <div class="h-48 bg-neutral-0 p-4 flex flex-col justify-between hover:scale-[1.02] transition-transform z-10 hover:z-20 origin-right">
+                                <span class="text-neutral-900 font-sans text-sm">Surface</span>
+                                <span class="text-neutral-500 font-mono text-xs">#fbfbfb</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Functional -->
+                <div class="px-[24px] md:px-[80px] mt-12 grid grid-cols-1 md:grid-cols-4 gap-[24px] animate-on-scroll delay-300">
+                    <div class="p-4 border border-status-successBg bg-[color:var(--semantic-success-surface)] rounded-lg flex items-center justify-between">
+                        <span class="text-status-success font-sans font-medium">Success</span>
+                        <div class="w-4 h-4 rounded-full bg-status-success"></div>
+                    </div>
+                    <div class="p-4 border border-status-errorBg bg-[color:var(--semantic-error-surface)] rounded-lg flex items-center justify-between">
+                        <span class="text-status-error font-sans font-medium">Error</span>
+                        <div class="w-4 h-4 rounded-full bg-status-error"></div>
+                    </div>
+                    <div class="p-4 border border-status-warningBg bg-[color:var(--semantic-warning-surface)] rounded-lg flex items-center justify-between">
+                        <span class="font-sans font-medium text-[color:var(--semantic-warning-fg)]">Warning</span>
+                        <div class="w-4 h-4 rounded-full bg-status-warning"></div>
+                    </div>
+                    <div class="p-4 border border-status-infoBg bg-[color:var(--semantic-info-surface)] rounded-lg flex items-center justify-between">
+                        <span class="text-status-info font-sans font-medium">Info</span>
+                        <div class="w-4 h-4 rounded-full bg-status-info"></div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- DESIGN TOKENS -->
+            <section id="tokens" class="py-[80px] px-[24px] md:px-[80px] border-b border-neutral-200 bg-neutral-0">
+                <div class="mb-16 animate-on-scroll">
+                    <span class="font-sans font-medium text-[length:var(--text-base)] text-neutral-500 mb-2 block">02b / Foundation</span>
+                    <h2 class="font-display font-normal text-[length:clamp(48px,6vw,56px)] leading-[1.1] tracking-[-0.01em] text-neutral-900">Design Tokens</h2>
+                </div>
+
+                <div class="ds-token-section animate-on-scroll">
+                    <h3 class="ds-token-section__title">Spacing</h3>
+                    <div class="ds-token-grid">
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--primary); width:var(--space-2xs)"></div><div class="ds-token-swatch__meta"><strong>--space-2xs</strong>4px</div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--primary); width:var(--space-xs)"></div><div class="ds-token-swatch__meta"><strong>--space-xs</strong>8px</div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--primary); width:var(--space-sm)"></div><div class="ds-token-swatch__meta"><strong>--space-sm</strong>12px</div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--primary); width:var(--space-md)"></div><div class="ds-token-swatch__meta"><strong>--space-md</strong>16px</div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--primary); width:var(--space-lg)"></div><div class="ds-token-swatch__meta"><strong>--space-lg</strong>24px</div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--primary); width:var(--space-xl)"></div><div class="ds-token-swatch__meta"><strong>--space-xl</strong>32px</div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--primary); width:var(--space-2xl)"></div><div class="ds-token-swatch__meta"><strong>--space-2xl</strong>48px</div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--primary); width:var(--space-3xl)"></div><div class="ds-token-swatch__meta"><strong>--space-3xl</strong>80px</div></div>
+                    </div>
+                </div>
+
+                <div class="ds-token-section animate-on-scroll delay-100">
+                    <h3 class="ds-token-section__title">Typography scale</h3>
+                    <table class="ds-token-table">
+                        <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+                        <tbody>
+                            <tr><td>--text-xs</td><td>10px</td><td>Overlines, micro labels</td></tr>
+                            <tr><td>--text-link</td><td>13px</td><td>Text links</td></tr>
+                            <tr><td>--text-sm</td><td>13px</td><td>CTA, captions, hints</td></tr>
+                            <tr><td>--text-base</td><td>16px</td><td>Body, inputs, nav</td></tr>
+                            <tr><td>--text-md</td><td>18px</td><td>H4-style emphasis</td></tr>
+                            <tr><td>--text-lg</td><td>22px</td><td>Lead / deck</td></tr>
+                            <tr><td>--text-xl</td><td>28px</td><td>Section H3</td></tr>
+                            <tr><td>--text-2xl</td><td>clamp(22px, 4vw, 34px)</td><td>Screen titles</td></tr>
+                            <tr><td>--text-3xl</td><td>clamp(40px, 4vw, 48px)</td><td>Section H2</td></tr>
+                            <tr><td>--text-hero</td><td>clamp(56px, 6vw, 58px)</td><td>Home hero H1</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="ds-token-section animate-on-scroll delay-100">
+                    <h3 class="ds-token-section__title">Motion &amp; radius</h3>
+                    <table class="ds-token-table">
+                        <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+                        <tbody>
+                            <tr><td>--duration-fast</td><td>200ms</td><td>Buttons, inputs</td></tr>
+                            <tr><td>--duration-base</td><td>300ms</td><td>UI transitions</td></tr>
+                            <tr><td>--duration-emphasis</td><td>800ms</td><td>Card expand</td></tr>
+                            <tr><td>--transition-fast</td><td>200ms ease</td><td>Buttons, inputs</td></tr>
+                            <tr><td>--transition-emphasis</td><td>800ms cubic-bezier</td><td>Card footer lift</td></tr>
+                            <tr><td>--radius</td><td>4px</td><td>Global corner radius</td></tr>
+                            <tr><td>--radius-full</td><td>50%</td><td>Pills, dots</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="ds-token-section animate-on-scroll delay-200">
+                    <h3 class="ds-token-section__title">Shadows &amp; focus</h3>
+                    <div class="ds-token-grid">
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--neutral-0); box-shadow:var(--shadow-sm)"></div><div class="ds-token-swatch__meta"><strong>--shadow-sm</strong></div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--neutral-0); box-shadow:var(--shadow-md)"></div><div class="ds-token-swatch__meta"><strong>--shadow-md</strong></div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--neutral-0); box-shadow:var(--shadow-lg)"></div><div class="ds-token-swatch__meta"><strong>--shadow-lg</strong></div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--neutral-0); box-shadow:var(--shadow-focus); border:1px solid var(--primary)"></div><div class="ds-token-swatch__meta"><strong>--shadow-focus</strong>Forms</div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--neutral-0); box-shadow:var(--shadow-ring-light)"></div><div class="ds-token-swatch__meta"><strong>--shadow-ring-light</strong></div></div>
+                        <div class="ds-token-swatch"><div class="ds-token-swatch__chip" style="background:var(--inverse-bg); box-shadow:var(--shadow-ring-dark)"></div><div class="ds-token-swatch__meta"><strong>--shadow-ring-dark</strong></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMPONENTS SECTION -->
+            <section id="components" class="py-[80px] bg-neutral-0 relative z-30 shadow-[0_-10px_40px_var(--ui-elevation-1)]">
+                <div class="px-[24px] md:px-[80px] mb-16 animate-on-scroll">
+                    <span class="font-sans font-medium text-[length:var(--text-base)] text-neutral-500 mb-2 block">03 / UI Shell</span>
+                    <h2 class="font-display font-normal text-[length:clamp(48px,6vw,56px)] leading-[1.1] tracking-[-0.01em] text-neutral-900">Components</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 border-y border-neutral-200">
+
+                    <!-- Buttons & Inputs -->
+                    <div class="col-span-1 md:col-span-6 p-[24px] md:p-[80px] border-b md:border-b-0 md:border-r border-neutral-200 bg-neutral-100 flex flex-col gap-16">
+
+                        <!-- Buttons -->
+                        <div class="animate-on-scroll delay-100">
+                            <h3 class="font-display text-[length:var(--text-xl)] text-neutral-900 mb-8 select-none">Action Buttons</h3>
+                            <div class="flex flex-wrap gap-6 items-center">
+                                <button type="button" class="btn btn-primary">Primary Action</button>
+                                <button type="button" class="btn btn-secondary">Secondary View</button>
+                            </div>
+                            <div class="flex flex-wrap gap-6 items-center mt-6">
+                                <button type="button" class="btn btn-primary" disabled>Disabled</button>
+                                <button type="button" class="btn btn-secondary" aria-busy="true">Loading</button>
+                                <a href="#" class="text-link">
+                                    Text Link
+                                    <img src="01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg" alt="" class="text-link__icon">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Form Controls -->
+                        <div class="animate-on-scroll delay-200">
+                            <h3 class="font-display text-[length:var(--text-xl)] text-neutral-900 mb-8 select-none">Form Controls</h3>
+                            <div class="space-y-6 max-w-sm">
+                                <div class="flex flex-col gap-2">
+                                    <label class="form-label" for="ds-name">Full Name</label>
+                                    <input type="text" id="ds-name" placeholder="John Doe" class="form-input">
+                                    <span class="form-hint">Optional hint text</span>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="form-label" for="ds-email">Email (error)</label>
+                                    <input type="email" id="ds-email" placeholder="example@domain.com" class="form-input" aria-invalid="true" value="invalid-email">
+                                    <span class="form-error">Please enter a valid email.</span>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <label class="form-label" for="ds-asunto">Custom select</label>
+                                    <div class="custom-select" id="ds-select">
+                                        <div class="select-trigger form-input" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false" aria-controls="ds-select-listbox">
+                                            <span class="selected-text">Select an option</span>
+                                            <svg class="select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="butt"/>
+                                            </svg>
+                                        </div>
+                                        <div class="select-options" id="ds-select-listbox" role="listbox">
+                                            <div class="select-option" role="option" data-value="General">General inquiry</div>
+                                            <div class="select-option" role="option" data-value="Project">Project / services</div>
+                                            <div class="select-option" role="option" data-value="Other">Other</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tags / Labels -->
+                        <div class="animate-on-scroll delay-300">
+                            <h3 class="font-display text-[length:var(--text-xl)] text-neutral-900 mb-8 select-none">Tags &amp; Section labels</h3>
+                            <div class="flex flex-col gap-6 items-start">
+                                <span class="section-tag">
+                                    <img src="01-icons/chanwe-icons/chanwe-detail-icon.svg" alt="" class="section-tag__icon" width="12" height="12">
+                                    Section tag
+                                </span>
+                                <span class="section-tag cw-hero__tag">
+                                    <img src="01-icons/chanwe-icons/chanwe-detail-icon.svg" alt="" class="section-tag__icon" width="12" height="12">
+                                    Hero overline
+                                </span>
+                                <div class="flex flex-wrap gap-4 items-center">
+                                    <span class="tag tag-dark">Dark tag</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Focus utilities -->
+                        <div class="animate-on-scroll delay-300">
+                            <h3 class="font-display text-[length:var(--text-xl)] text-neutral-900 mb-8 select-none">Focus rings</h3>
+                            <div class="ds-focus-demo">
+                                <button type="button" class="btn btn-secondary cw-focus-ring ds-focus-demo__btn">Default</button>
+                                <button type="button" class="btn btn-secondary cw-focus-ring--soft ds-focus-demo__btn">Soft glow</button>
+                                <button type="button" class="btn btn-secondary cw-focus-ring--ring-light ds-focus-demo__btn">Double ring</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cards & Surfaces -->
+                    <div class="col-span-1 md:col-span-6 bg-grid p-[24px] md:p-[80px]">
+
+                        <div class="animate-on-scroll delay-300">
+                            <h3 class="font-display text-[length:var(--text-xl)] text-neutral-900 mb-8 select-none bg-white inline-block px-2">Data Surfaces (Interactive)</h3>
+
+                            <div class="grid grid-cols-1 gap-6">
+                                <!-- Default Card -->
+                                <div class="card-default group" onmousemove="var rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);">
+
+                                    <img src="01-icons/chanwe-icons/chanwe-glyph-diamond-red.svg" class="h-10 w-10 mb-6 grayscale group-hover:grayscale-0 transition-all duration-300">
+                                    <h4 class="font-display text-2xl text-neutral-900 mb-2">Structure Component</h4>
+                                    <p class="font-sans text-[length:var(--text-lg)] text-neutral-500 line-clamp-2 mb-6">Built without relying on heavy shadows. Flashlight effect reveals boundaries.</p>
+
+                                    <div class="h-[1px] w-full bg-neutral-200 mb-6 group-hover:bg-neutral-400 transition-colors"></div>
+
+                                    <div class="flex justify-between items-center text-sm font-sans text-neutral-500">
+                                        <span>Hover to reveal</span>
+                                        <iconify-icon icon="solar:arrow-right-up-linear" class="text-lg opacity-0 group-hover:opacity-100 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-all"></iconify-icon>
+                                    </div>
+                                </div>
+
+                                <!-- Dark Card -->
+                                <div class="card-dark group" onmousemove="var rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);">
+
+                                    <div class="flex justify-between items-start mb-4">
+                                        <span class="tag tag-dark group-hover:text-white transition-colors">High Impact</span>
+                                        <img src="01-icons/chanwe-icons/chanwe-glyph-checker-red.svg" class="h-8 w-8 opacity-50 group-hover:opacity-100 transition-opacity">
+                                    </div>
+                                    <h4 class="font-display text-2xl text-neutral-0 mb-2">Inverse Scale</h4>
+                                    <p class="font-sans text-[length:var(--text-lg)] text-neutral-400 line-clamp-2">Visual depth on dark contexts without breaking the premium aesthetic.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="animate-on-scroll delay-400 mt-12">
+                            <h3 class="font-display text-[length:var(--text-xl)] text-neutral-900 mb-4 select-none bg-white inline-block px-2">Case card</h3>
+                            <div class="ds-case-card-demo">
+                                <a href="#" class="case-card" data-slug="retail-indumentaria">
+                                    <div class="case-card__img-container">
+                                        <img src="03-images/webp/chanwe-foto-3.webp" alt="" class="case-card__img" loading="lazy">
+                                    </div>
+                                    <div class="case-card__footer">
+                                        <div class="case-card__footer-top">
+                                            <div class="case-card__meta">
+                                                <span class="case-card__sector">RETAIL</span>
+                                                <span class="case-card__location">Buenos Aires, AR</span>
+                                            </div>
+                                        </div>
+                                        <div class="case-card__content">
+                                            <h3 class="case-card__h3 case-card__h3--highlight">x2 margin</h3>
+                                            <h4 class="case-card__h4">Sample case study title</h4>
+                                            <p class="case-card__text-body">Transformamos operaciones con margen poco visible en decisiones basadas en datos reales.</p>
+                                            <span class="text-link case-card__btn">
+                                                View case
+                                                <img src="01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg" alt="" class="text-link__icon">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="animate-on-scroll delay-400 mt-12">
+                            <h3 class="font-display text-[length:var(--text-xl)] text-neutral-900 mb-4 select-none bg-white inline-block px-2">Carousel nav</h3>
+                            <nav class="ds-carousel-nav-demo" aria-label="Carousel controls demo">
+                                <button type="button" class="cw-carousel__nav-btn cw-carousel__nav-btn--prev cw-focus-ring" aria-label="Previous">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="butt"/></svg>
+                                </button>
+                                <button type="button" class="cw-carousel__nav-btn cw-carousel__nav-btn--next cw-focus-ring" aria-label="Next">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="butt"/></svg>
+                                </button>
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ICONOGRAPHY — project SVGs (assets/01-icons/) -->
+            <section id="assets" class="py-[80px] px-[24px] md:px-[80px] bg-neutral-0 border-b border-neutral-200 overflow-hidden relative">
+                <div class="mb-16 animate-on-scroll">
+                    <span class="font-sans font-medium text-[length:var(--text-base)] text-neutral-500 mb-2 block">04 / Assets</span>
+                    <h2 class="font-display font-normal text-[length:clamp(48px,6vw,56px)] leading-[1.1] tracking-[-0.01em] text-neutral-900">Iconography</h2>
+                </div>
+
+                <div class="animate-on-scroll delay-100 max-w-[1100px]">
+                    <div class="ds-icon-section">
+                        <div class="ds-icon-section__head">
+                            <h3 class="ds-icon-section__title">General UI</h3>
+                        </div>
+                        <div class="ds-icon-grid" role="list">
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-search.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">search</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-close.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">close</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-menu.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">menu</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-chevron-down.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">chevron-down</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-chevron-up.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">chevron-up</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-chevron-left.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">chevron-left</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-chevron-right.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">chevron-right</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-arrow-down.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-down</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-arrow-right.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-right</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-arrow-narrow-left.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-narrow-left</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-arrow-narrow-down-dashed.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-narrow-down-dashed</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-download.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">download</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-calendar-week.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">calendar-week</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-hourglass-empty.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">hourglass-empty</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-eye.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">eye</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-eye-off.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">eye-off</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-eye-closed.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">eye-closed</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-filter.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">filter</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-bolt.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">bolt</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-database-search.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">database-search</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-target-arrow.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">target-arrow</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-trending-up.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">trending-up</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-users-group.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">users-group</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--ui" src="01-icons/general-icons/general-chanwe-icon-compass.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">compass</span></div>
+                        </div>
+                    </div>
+
+                    <div class="ds-icon-section">
+                        <div class="ds-icon-section__head">
+                            <h3 class="ds-icon-section__title">Brand &amp; product</h3>
+                        </div>
+                        <div class="ds-icon-grid" role="list">
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-glyph-diamond-red.svg" alt="" width="40" height="40"><span class="ds-icon-cell__label">glyph-diamond-red</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-glyph-checker-red.svg" alt="" width="40" height="40"><span class="ds-icon-cell__label">glyph-checker-red</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-detail-icon.svg" alt="" width="40" height="40"><span class="ds-icon-cell__label">detail-icon</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-icon-arrow-upright-red.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-upright-red</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-icon-arrow-upright-black.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-upright-black</span></div>
+                            <div class="ds-icon-cell ds-icon-cell--inverse" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-icon-arrow-upright-white.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-upright-white</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-icon-arrow-upright-grey.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-upright-grey</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-icon-arrow-right-red.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-right-red</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-icon-arrow-right-black.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-right-black</span></div>
+                            <div class="ds-icon-cell ds-icon-cell--inverse" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-icon-arrow-right-white.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-right-white</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-icon-arrow-right-grey.svg" alt="" width="28" height="28"><span class="ds-icon-cell__label">arrow-right-grey</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-group-red.svg" alt="" width="40" height="40"><span class="ds-icon-cell__label">group-red</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-group-black.svg" alt="" width="40" height="40"><span class="ds-icon-cell__label">group-black</span></div>
+                            <div class="ds-icon-cell ds-icon-cell--inverse" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-group-white.svg" alt="" width="40" height="40"><span class="ds-icon-cell__label">group-white</span></div>
+                            <div class="ds-icon-cell" role="listitem"><img class="ds-icon-cell__img ds-icon-cell__img--brand" src="01-icons/chanwe-icons/chanwe-group-grey.svg" alt="" width="40" height="40"><span class="ds-icon-cell__label">group-grey</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="bg-inverse text-neutral-400 py-[80px] px-[24px] md:px-[80px]">
+            <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+                <div>
+                    <img src="02-logo/chanwe-logo-white.svg" alt="Chanwe Logo" class="h-8 mb-4">
+                    <p class="text-sm font-sans text-neutral-500">Chanwe Design System</p>
+                </div>
+                <div class="flex md:justify-end gap-8 font-sans font-medium text-sm">
+                    <a href="#" class="hover:text-white transition-colors">Components</a>
+                    <a href="#" class="hover:text-white transition-colors">Documentation</a>
+                    <a href="#" class="hover:text-primary transition-colors">Contact</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="../js/custom-select.js"></script>
+    <script>
+        // Intersection Observer for Scroll Animations
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate");
+
+                        // Handle text reveals specifically
+                        const textWrappers = entry.target.querySelectorAll('.text-reveal-wrapper');
+                        if (entry.target.classList.contains('text-reveal-wrapper') || textWrappers.length > 0) {
+                            entry.target.classList.add('reveal-active');
+                        }
+
+                        // Unobserve if we only want it to animate once
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll(".animate-on-scroll, h1, .text-reveal-wrapper").forEach((el) => {
+                observer.observe(el);
+            });
+
+            // Navbar Blur Effect on Scroll
+            const navbar = document.getElementById('main-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'var(--ui-backdrop-solid)';
+                    navbar.style.borderBottomColor = 'var(--neutral-200)';
+                } else {
+                    navbar.style.background = 'var(--ui-backdrop-medium)';
+                    navbar.style.borderBottomColor = 'var(--ui-border-frost)';
+                }
+            });
+
+            // Initial trigger for top elements
+            setTimeout(() => {
+                const h1 = document.querySelector('h1');
+                if (h1) h1.classList.add('reveal-active');
+            }, 100);
+
+            if (typeof window.cwInitCustomSelects === 'function') {
+                window.cwInitCustomSelects('.custom-select');
+            }
+        });
+    </script>
+</body>
+
+</html>

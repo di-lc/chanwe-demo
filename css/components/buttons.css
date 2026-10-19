@@ -1,0 +1,206 @@
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-extralight);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0 var(--space-xl);
+  border-radius: var(--radius);
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--ui-white);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.02);
+}
+
+.btn-primary:active {
+  background-color: var(--primary-active);
+  transform: scale(0.98);
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--ui-shimmer-strong),
+    transparent
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  transition: transform var(--transition-slow);
+}
+
+.btn-primary:hover::before {
+  transform: translateX(100%) skewX(-15deg);
+  transition: transform var(--transition-slow);
+}
+
+.btn-primary:focus-visible {
+  outline-color: var(--neutral-0);
+  box-shadow: 0 0 0 4px var(--primary-active);
+}
+
+.btn-primary:disabled:focus-visible {
+  box-shadow: none;
+}
+
+/* Disabled — shared */
+.btn:disabled,
+.btn.is-disabled,
+.btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+}
+
+.btn-primary:disabled,
+.btn-primary.is-disabled,
+.btn-primary[aria-disabled="true"] {
+  opacity: var(--ui-disabled-opacity);
+  background-color: var(--primary);
+  color: var(--ui-white);
+}
+
+.btn-primary:disabled::before,
+.btn-primary.is-disabled::before,
+.btn-primary[aria-disabled="true"]::before {
+  transform: translateX(-100%) skewX(-15deg);
+}
+
+.btn-secondary:disabled,
+.btn-secondary.is-disabled,
+.btn-secondary[aria-disabled="true"] {
+  opacity: var(--ui-disabled-opacity);
+  color: var(--neutral-500);
+  border-color: var(--ui-border-default);
+  background-color: var(--neutral-100);
+}
+
+.btn-secondary:disabled::before,
+.btn-secondary.is-disabled::before,
+.btn-secondary[aria-disabled="true"]::before {
+  transform: translateX(-200%) skewX(-5deg);
+}
+
+/* Loading — set aria-busy="true" or .is-loading via cwSetButtonLoading() */
+.btn.is-loading,
+.btn[aria-busy="true"] {
+  cursor: wait;
+  pointer-events: none;
+  opacity: var(--ui-loading-opacity);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--neutral-900);
+  border: 1px solid var(--ui-border-default);
+  transition:
+    border-color var(--transition-smooth),
+    background-color var(--transition-smooth),
+    color var(--transition-smooth),
+    transform var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background-color: var(--neutral-0);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  background-color: var(--neutral-100);
+  transform: translateY(0);
+}
+
+.btn-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Secondary CTA shimmer */
+  background: linear-gradient(
+    to right,
+    transparent -50%,
+    var(--ui-shimmer-soft) 50%,
+    transparent 150%
+  );
+  transform: translateX(-200%) skewX(-5deg);
+  transition: transform var(--transition-decorative);
+  pointer-events: none;
+}
+
+.btn-secondary:hover::before {
+  transform: translateX(200%) skewX(-5deg);
+  transition: transform var(--transition-decorative-slow);
+}
+
+.btn-secondary:focus-visible {
+  border-color: var(--primary);
+}
+
+/* Text link */
+.text-link {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-link);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: color var(--transition-fast);
+  padding: var(--space-xs) 0;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  color: var(--primary-hover);
+}
+
+.text-link__icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  transition: transform var(--transition-base);
+}
+
+.text-link:hover .text-link__icon {
+  transform: translate(3px, -3px);
+}

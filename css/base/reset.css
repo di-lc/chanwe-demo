@@ -1,0 +1,130 @@
+/* ============================================
+   Reset
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-3xl);
+  overflow-x: hidden;
+  max-width: 100%;
+  scrollbar-gutter: stable;
+}
+
+/* Touch: disable smooth scroll (GSAP ScrollTrigger conflict) */
+@media (hover: none) and (pointer: coarse) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--neutral-100);
+  color: var(--neutral-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  animation: cw-page-enter 0.45s ease forwards;
+}
+
+body.cw-page-exit {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+@keyframes cw-page-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    animation: none;
+  }
+
+  body.cw-page-exit {
+    transition: none;
+  }
+
+  .hero__scroll-arrow-img {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+::selection {
+  background-color: var(--primary-subtle);
+  color: var(--primary);
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* Nav/footer placeholder — prevents layout shift */
+[data-component="nav"] {
+  display: block;
+  min-height: var(--cw-header-height);
+}
+
+/* Home: no nav spacer */
+.page-home [data-component="nav"] {
+  min-height: 0;
+}
+
+/* Home pre-state — hides hero copy before GSAP (no !important: GSAP inline must animate opacity) */
+.page-home.cw-home-prestate .hero__content > .cw-hero__tag,
+.page-home.cw-home-prestate .hero__content > .h1,
+.page-home.cw-home-prestate .hero__content > .subtitle,
+.page-home.cw-home-prestate .hero__content > .hero__actions,
+.page-home.cw-home-prestate .hero > .hero__scroll-indicator,
+.page-home.cw-home-prestate .hero__content > .hero__scroll-indicator--mobile {
+  opacity: 0;
+  visibility: hidden;
+}
+
+[data-component="footer"] {
+  display: block;
+  min-height: 240px;
+  /* footer reserve */
+}

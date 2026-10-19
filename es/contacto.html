@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required head -->
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Chanwe - Consultoría Estratégica</title>
+    <meta name="description" content="Contacto Chanwe: consultoría estratégica y desarrollo de negocios. Rosario, Argentina.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="/es/contacto.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/es/contacto.html">
+    <meta property="og:title" content="Contacto | Chanwe - Consultoría Estratégica">
+    <meta property="og:description" content="Contacto Chanwe: consultoría estratégica y desarrollo de negocios. Rosario, Argentina.">
+    <meta property="og:image" content="/assets/03-images/og-image/og-image.png">
+    <meta property="og:locale" content="es">
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="es" href="/es/contacto.html">
+    <link rel="alternate" hreflang="en" href="/en/contacto.html">
+    <link rel="alternate" hreflang="x-default" href="/es/contacto.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap">
+
+
+    <link rel="stylesheet" href="../css/styles.css?v=20260928a">
+    <link rel="stylesheet" href="../css/interior.css?v=20260728">
+    <link rel="stylesheet" href="../css/contacto.css?v=20260901l">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="../js/i18n.js?v=20261019-en" defer></script>
+    <script src="../js/components.js?v=20261019-2" defer></script>
+    <script src="../js/main.js?v=20260828a" defer></script>
+    <script src="../js/custom-select.js" defer></script>
+    <script src="../js/form-a11y.js" defer></script>
+    <script src="../js/contacto.js?v=20260901d" defer></script>
+</head>
+
+<body class="page-contacto" itemscope itemtype="https://schema.org/WebPage">
+    <div data-component="nav"></div>
+
+    <main id="main-content" role="main">
+        <section class="section cases contacto" id="contacto-content" aria-label="Contacto Chanwe">
+            <div class="container">
+                <div class="section-tag">CONTACTO</div>
+                <h1 class="h2 cases__title page-title">Queremos conocer tu desafío.</h1>
+                <p class="body-text page-lead">
+                    Hablemos de lo que te está moviendo, qué tenés en mente y, sobre todo, ¿en qué te podemos ayudar?
+                </p>
+
+                <div class="contacto__grid">
+                    <!-- Optional: swap form action for Formspree/Web3Forms -->
+                    <form class="contacto__form" id="contact-form" method="post" action="#">
+                        <div class="contacto__row">
+                            <div class="contacto__group">
+                                <label class="contacto__label form-label" for="contacto-nombre">Nombre</label>
+                                <input class="contacto__input form-input" type="text" id="contacto-nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" required aria-describedby="contacto-nombre-error">
+                                <span class="form-error" id="contacto-nombre-error" role="alert" hidden></span>
+                            </div>
+                            <div class="contacto__group">
+                                <label class="contacto__label form-label" for="contacto-email">Email</label>
+                                <input class="contacto__input form-input" type="email" id="contacto-email" name="email" placeholder="tu@empresa.com" autocomplete="email" required aria-describedby="contacto-email-error">
+                                <span class="form-error" id="contacto-email-error" role="alert" hidden></span>
+                            </div>
+                        </div>
+                        <div class="contacto__row">
+                            <div class="contacto__group">
+                                <label class="contacto__label form-label" for="contacto-empresa">Empresa</label>
+                                <input class="contacto__input form-input" type="text" id="contacto-empresa" name="empresa" placeholder="Nombre de la empresa" autocomplete="organization" required aria-describedby="contacto-empresa-error">
+                                <span class="form-error" id="contacto-empresa-error" role="alert" hidden></span>
+                            </div>
+                            <div class="contacto__group">
+                                <label class="contacto__label form-label" for="contacto-rol">Rol</label>
+                                <input class="contacto__input form-input" type="text" id="contacto-rol" name="rol" placeholder="Tu cargo o rol" autocomplete="organization-title" required aria-describedby="contacto-rol-error">
+                                <span class="form-error" id="contacto-rol-error" role="alert" hidden></span>
+                            </div>
+                        </div>
+                        <div class="contacto__row">
+                            <div class="contacto__group">
+                                <label class="contacto__label form-label" for="contacto-telefono">Teléfono <span class="contacto__optional" id="contacto-telefono-requirement">(opcional)</span></label>
+                                <input class="contacto__input form-input" type="tel" id="contacto-telefono" name="telefono" placeholder="+54 …" autocomplete="tel" aria-describedby="contacto-telefono-error">
+                                <span class="form-error" id="contacto-telefono-error" role="alert" hidden></span>
+                            </div>
+                            <div class="contacto__group">
+                                <label class="contacto__label form-label" for="contacto-linkedin">LinkedIn <span class="contacto__optional">(opcional)</span></label>
+                                <input class="contacto__input form-input" type="url" id="contacto-linkedin" name="linkedin" placeholder="linkedin.com/in/tu-perfil">
+                            </div>
+                        </div>
+                        <div class="contacto__group">
+                            <label class="contacto__label form-label" for="contacto-como">¿Cómo nos conociste? <span class="contacto__optional">(opcional)</span></label>
+                            <input class="contacto__input form-input" type="text" id="contacto-como" name="como_nos_conociste" placeholder="Referido, redes sociales, búsqueda…">
+                        </div>
+                        <div class="contacto__group">
+                            <label class="contacto__label form-label" id="contacto-asunto-heading">Asunto</label>
+                            <div class="custom-select" id="wrapper-contacto-asunto">
+                                <div class="select-trigger" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false" aria-controls="contacto-asunto-listbox" aria-labelledby="contacto-asunto-heading" aria-describedby="contacto-asunto-error">
+                                    <span class="selected-text">Seleccioná</span>
+                                    <svg class="select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <use href="../assets/01-icons/general-icons/chanwe-general-icons.sprite.svg#general-chanwe-icon-chevron-down">
+                                        </use>
+                                    </svg>
+                                </div>
+                                <div class="select-options" id="contacto-asunto-listbox" role="listbox" aria-labelledby="contacto-asunto-heading">
+                                    <div class="select-option" role="option" data-value="Consulta general">Consulta
+                                        general</div>
+                                    <div class="select-option" role="option" data-value="Servicios / proyecto">Servicios
+                                        / proyecto</div>
+                                    <div class="select-option" role="option" data-value="Prensa / medios">Prensa /
+                                        medios</div>
+                                    <div class="select-option" role="option" data-value="Otro">Otro</div>
+                                </div>
+                                <input type="hidden" name="asunto" id="contacto-asunto" value="" required>
+                            </div>
+                            <span class="form-error" id="contacto-asunto-error" role="alert" aria-live="polite" hidden></span>
+                        </div>
+                        <div class="contacto__group">
+                            <label class="contacto__label form-label" for="contacto-mensaje">Mensaje</label>
+                            <textarea class="contacto__textarea form-textarea" id="contacto-mensaje" name="mensaje" placeholder="Contanos qué necesitás…" required aria-describedby="contacto-mensaje-error"></textarea>
+                            <span class="form-error" id="contacto-mensaje-error" role="alert" hidden></span>
+                        </div>
+                        <section class="contacto__booking" aria-labelledby="contacto-booking-title">
+                            <div class="contacto__booking-intro">
+                                <div class="contacto__booking-copy">
+                                    <h3 class="contacto__booking-title" id="contacto-booking-title">Solicitar una reunión</h3>
+                                    <p class="contacto__booking-lead">Elegí un horario tentativo para un primer encuentro.</p>
+                                </div>
+                                <button class="btn btn-secondary contacto__booking-toggle" id="contacto-booking-toggle" type="button" aria-expanded="false" aria-controls="contacto-booking-options">
+                                    <span class="contacto__booking-toggle-action">Ver horarios</span>
+                                </button>
+                            </div>
+                            <div class="contacto__booking-options" id="contacto-booking-options" hidden>
+                                <p>Completá tus datos arriba, elegí un horario y enviá la solicitud con el botón «Solicitar reunión». El horario queda pendiente hasta que Chanwe lo confirme. Email y teléfono son obligatorios.</p>
+                                <div class="contacto__booking-status" id="contacto-booking-status" role="status" aria-live="polite"></div>
+                                <div class="contacto__booking-dates-scroll">
+                                    <div class="contacto__booking-dates" id="contacto-booking-dates" aria-label="Fechas disponibles"></div>
+                                    <div class="contacto__booking-dates-bar" id="contacto-booking-dates-bar" aria-hidden="true" hidden>
+                                        <span class="contacto__booking-dates-bar-thumb" id="contacto-booking-dates-thumb"></span>
+                                    </div>
+                                </div>
+                                <div class="contacto__booking-times" id="contacto-booking-times" aria-label="Horarios disponibles"></div>
+                                <p class="contacto__booking-selection" id="contacto-booking-selection" hidden></p>
+                                <input type="hidden" name="starts_at" id="contacto-starts-at" value="">
+                                <input class="contacto__honeypot" type="text" name="website" id="contacto-website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                                <span class="form-error" id="contacto-starts-at-error" role="alert" hidden></span>
+                            </div>
+                        </section>
+                        <p class="form-error form-error--summary" id="contact-form-error-summary" data-form-error-summary role="alert" aria-live="polite" hidden></p>
+                        <p class="contacto__hint form-hint">En esta demo el mensaje se marca como enviado. No se abre el correo ni se notifica a nadie.</p>
+                        <button type="submit" class="btn btn-primary contacto__submit">Enviar mensaje</button>
+                        <p class="contacto__form-note">Demo estática: no hay servidor ni envío real.</p>
+                    </form>
+                    <div class="contacto__booking-success" id="contacto-booking-success" role="status" tabindex="-1" hidden>
+                        <p class="section-tag">SOLICITUD RECIBIDA</p>
+                        <h2>El encuentro está pendiente de confirmación.</h2>
+                        <p id="contacto-booking-success-message">En esta demo la reunión aparece como agendada. No se envió ningún correo.</p>
+                        <button type="button" class="btn btn-secondary" id="contacto-booking-new-request">Volver al formulario</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div data-component="footer"></div>
+</body>
+
+</html>

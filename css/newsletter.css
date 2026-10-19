@@ -1,0 +1,131 @@
+/* ==========================================================================
+   Newsletter page
+   Base: styles.css + interior.css
+   ========================================================================== */
+
+/* Page scope */
+#newsletter-content {
+  position: relative;
+  background-color: var(--neutral-100);
+  padding-bottom: var(--space-section-y);
+}
+
+/* Last block flush */
+#newsletter-content > :last-child {
+  margin-bottom: 0;
+}
+
+#newsletter-content .cw-newsletter__section:last-of-type {
+  padding-bottom: 0;
+}
+
+/* Container */
+.cw-newsletter__container {
+  max-width: var(--container-interior);
+}
+
+/* Hero tag */
+.cw-newsletter__hero .section-tag {
+  color: var(--primary);
+}
+
+.cw-newsletter__hero .page-lead {
+  margin-bottom: 0;
+}
+
+.cw-newsletter__divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--ui-border-default);
+  margin-top: var(--space-2xl);
+}
+
+.cw-newsletter__section {
+  padding: var(--space-2xl) 0;
+  position: relative;
+}
+
+.cw-newsletter__section--base {
+  background-color: var(--neutral-100);
+}
+
+/* Form */
+.cw-newsletter__form-wrap {
+  max-width: var(--card-form-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cw-newsletter__form {
+  background-color: var(--neutral-0);
+  border: 1px solid var(--ui-border-default);
+  border-radius: var(--radius);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.cw-newsletter__form-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.cw-newsletter__form-title {
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.cw-newsletter__fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+/* Form fields — desktop */
+@media (min-width: 1025px) {
+  .cw-newsletter__fields {
+    margin-bottom: var(--space-2xl);
+  }
+}
+
+.cw-newsletter__field {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-xs);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.cw-newsletter__submit {
+  width: 100%;
+}
+
+.cw-newsletter__status {
+  margin: var(--space-md) 0 0 0;
+  text-align: center;
+  color: var(--primary);
+}
+
+.cw-newsletter__status[hidden] {
+  display: none;
+}
+
+.cw-newsletter__microcopy {
+  margin: var(--space-md) 0 0 0;
+  text-align: center;
+}
+
+/* Form card — tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cw-newsletter__form {
+    padding: var(--card-interior-padding);
+  }
+}
+
+/* Form card — mobile */
+@media (max-width: 768px) {
+  .cw-newsletter__form {
+    padding: var(--space-xl);
+  }
+}

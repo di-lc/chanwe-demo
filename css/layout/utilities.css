@@ -1,0 +1,138 @@
+/* ============================================
+   Utilities
+   ============================================ */
+
+/* Skip link — first focus target; visible on keyboard focus only */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: calc(var(--z-modal) + 1);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--neutral-900);
+  color: var(--ui-white);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-ui);
+  text-decoration: none;
+  border-radius: 0 0 var(--radius) 0;
+  transform: translateY(-120%);
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: var(--cw-focus-outline-width) solid var(--cw-focus-outline-color);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Focus ring utilities — tokens: --shadow-focus, --shadow-ring-*,
+   --cw-focus-outline-* (see tokens.css)
+   Apply .cw-focus-ring to new interactive elements; legacy selectors listed below.
+   -------------------------------------------------------------------------- */
+.cw-focus-ring:focus,
+:is(
+  .cw-focus-ring,
+  .nav__link,
+  .nav__dropdown-trigger,
+  .nav__dropdown-item,
+  .nav__lang-link,
+  .nav__logo,
+  .nav__hamburger,
+  .footer__block-link,
+  .footer__social-links a,
+  .cw-sidebar__btn,
+  .cw-tag--filter,
+  .cw-pagination__btn,
+  .cw-carousel__nav-btn,
+  .text-link
+):focus {
+  outline: none;
+}
+
+.cw-focus-ring:focus-visible,
+:is(
+  .cw-focus-ring,
+  .nav__link,
+  .nav__dropdown-trigger,
+  .nav__dropdown-item,
+  .nav__lang-link,
+  .nav__logo,
+  .nav__hamburger,
+  .footer__block-link,
+  .footer__social-links a,
+  .cw-sidebar__btn,
+  .cw-tag--filter,
+  .cw-pagination__btn,
+  .cw-carousel__nav-btn,
+  .text-link
+):focus-visible {
+  outline: var(--cw-focus-outline-width) solid var(--cw-focus-outline-color);
+  outline-offset: var(--cw-focus-outline-offset);
+}
+
+/* Form fields — soft glow (--shadow-focus) */
+.cw-focus-ring--soft:focus {
+  outline: none;
+}
+
+.cw-focus-ring--soft:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* Light surface — design-system double ring */
+.cw-focus-ring--ring-light:focus {
+  outline: none;
+}
+
+.cw-focus-ring--ring-light:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-ring-light);
+}
+
+/* Dark surface — design-system double ring */
+.cw-focus-ring--ring-dark:focus {
+  outline: none;
+}
+
+.cw-focus-ring--ring-dark:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-ring-dark);
+}
+
+/* Inverse — white outline on primary/dark fills (footer social, active pagination) */
+.cw-focus-ring--inverse:focus-visible,
+.footer__social-links a:focus-visible,
+.cw-pagination__btn.is-active:focus-visible {
+  outline-color: var(--ui-white);
+  box-shadow: var(--cw-focus-inverse-shadow);
+}
+
+.nav__hamburger:focus-visible,
+.cw-focus-ring--rounded:focus-visible {
+  border-radius: var(--radius);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-3xl);
+}
+
+/* Visually hidden — carousel slide announcements (aria-live) */
+.cw-carousel__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

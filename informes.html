@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required head -->
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informes | Chanwe - Consultoría Estratégica y Tecnología</title>
+    <meta name="description"
+        content="Investigaciones, diagnósticos y escenarios elaborados a la toma de decisiones. Descargá los informes del equipo Chanwe.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="/es/informes.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/es/informes.html">
+    <meta property="og:title" content="Informes | Chanwe - Consultoría Estratégica y Tecnología">
+    <meta property="og:description"
+        content="Investigaciones, diagnósticos y guías elaborados a partir de proyectos reales. Descargá los informes del equipo Chanwe.">
+    <meta property="og:image" content="/assets/03-images/og-image/og-image.png">
+    <meta property="og:locale" content="es">
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="es" href="/es/informes.html">
+    <link rel="alternate" hreflang="en" href="/en/informes.html">
+    <link rel="alternate" hreflang="x-default" href="/es/informes.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap">
+
+
+    <link rel="stylesheet" href="css/styles.css?v=20260928a">
+    <link rel="stylesheet" href="css/interior.css?v=20260728">
+    <link rel="stylesheet" href="css/perspectivas.css">
+    <link rel="stylesheet" href="css/informes.css?v=20260817">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+    <script src="js/i18n.js?v=20261019-en" defer></script>
+    <script src="js/listing-a11y.js" defer></script>
+    <script src="js/components.js?v=20261019-2" defer></script>
+    <script src="js/main.js?v=20260828a" defer></script>
+    <script src="js/carousel.js" defer></script>
+    <script src="js/informes.js?v=20260817" defer></script>
+</head>
+
+<body class="page-informes" itemscope itemtype="https://schema.org/CollectionPage">
+    <div data-component="nav"></div>
+
+    <main id="main-content" role="main">
+        <section class="cw-informes cases" id="informes" aria-label="Todos los informes">
+
+            <!-- Hero -->
+            <header class="cw-perspectivas__hero">
+                <div class="container cw-perspectivas__container">
+                    <div class="section-tag">REPOSITORIO DE INFORMES</div>
+                    <h1 class="h2 page-title cw-perspectivas__title">Informes.</h1>
+                    <p class="body-text page-lead cw-perspectivas__lead">
+                        Investigaciones, diagnósticos y escenarios para la toma de decisiones.
+                        El equipo de Research de Chanwe observa el contexto industrial y la coyuntura macro
+                        para navegar en un entorno siempre cambiante.
+                    </p>
+                    <p class="body-text highlight-brand">Información de calidad para tu negocio.</p>
+                </div>
+            </header>
+
+            <!-- Two-column: grid + sidebar -->
+            <section class="cw-informes__section cw-informes__section--base" aria-label="Listado">
+                <div class="cw-informes__layout">
+
+                    <!-- Grid column -->
+                    <div class="cw-informes__main">
+                        <div class="informes__listing" id="container-informes">
+                            <!-- cards rendered by js/informes.js -->
+                        </div>
+                        <nav class="cw-informes__pagination" id="informes-pagination" aria-label="Paginación" hidden>
+                        </nav>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="cw-perspectivas__sidebar" id="informes-sidebar" aria-label="Filtros">
+                        <div class="cw-sidebar__inner">
+
+                            <!-- Type -->
+                            <div class="cw-sidebar__block">
+                                <p class="cw-sidebar__title">Tipo</p>
+                                <ul class="cw-sidebar__list" id="sidebar-inf-categoria" role="list"></ul>
+                            </div>
+
+                            <!-- Year -->
+                            <div class="cw-sidebar__block">
+                                <p class="cw-sidebar__title">Año</p>
+                                <ul class="cw-sidebar__list" id="sidebar-inf-date" role="list"></ul>
+                            </div>
+
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+        </section>
+    </main>
+
+    <div data-component="footer"></div>
+</body>
+
+</html>

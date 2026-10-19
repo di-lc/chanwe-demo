@@ -1,0 +1,18 @@
+{
+  "publishedAt": "2026-10-19T17:20:30.560Z",
+  "portfolioRoot": "chanwe-demo",
+  "commitHint": "See git log on di-lc/chanwe-demo",
+  "check": {
+    "marketing": "https://di-lc.github.io/chanwe-demo/",
+    "portal": "https://di-lc.github.io/chanwe-demo/portal/",
+    "admin": "https://di-lc.github.io/chanwe-demo/admin/",
+    "expect": [
+      "Footer: Rosario, Calle España 1240, Centro 2000 + social icons (no links)",
+      "EN: nav loads under /chanwe-demo/en/",
+      "Admin sidebar: Conectado (green)",
+      "Admin KPIs: non-zero active clients + seed roster",
+      "No production sitemap or robots Sitemap entry"
+    ]
+  },
+  "history": "Single-commit publish; prior git history rewritten."
+}

@@ -1,0 +1,4 @@
+assets/03-images/originals/
+.DS_Store
+node_modules/
+scripts/a11y-reports/

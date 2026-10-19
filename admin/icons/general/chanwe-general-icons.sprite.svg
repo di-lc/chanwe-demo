@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="general-chanwe-icon-chevron-down" viewBox="0 0 24 24" fill="none">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M6 9l6 6l6 -6" stroke="currentColor" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" />
+  </symbol>
+  <symbol id="general-chanwe-icon-chevron-left" viewBox="0 0 24 24" fill="none">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M15 6l-6 6l6 6" stroke="currentColor" stroke-width="0.65" stroke-linecap="butt" stroke-linejoin="miter" />
+  </symbol>
+  <symbol id="general-chanwe-icon-chevron-right" viewBox="0 0 24 24" fill="none">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M9 6l6 6l-6 6" stroke="currentColor" stroke-width="0.65" stroke-linecap="butt" stroke-linejoin="miter" />
+  </symbol>
+  <symbol id="general-chanwe-icon-arrow-down" viewBox="0 0 24 24" fill="none">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M12 5l0 14" stroke="currentColor" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" />
+    <path d="M18 13l-6 6" stroke="currentColor" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" />
+    <path d="M6 13l6 6" stroke="currentColor" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" />
+  </symbol>
+  <symbol id="general-chanwe-icon-download" viewBox="0 0 24 24" fill="none">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" stroke="currentColor" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" />
+    <path d="M7 11l5 5l5 -5" stroke="currentColor" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" />
+    <path d="M12 4l0 12" stroke="currentColor" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" />
+  </symbol>
+</svg>
